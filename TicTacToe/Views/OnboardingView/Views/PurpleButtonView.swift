@@ -16,7 +16,7 @@ struct PurpleButtonView: View {
         Button(action: action) {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-//                    .fill(.appBlue)
+                    .fill(.appBlue)
                    
                 
                 Text(buttonTitle)
