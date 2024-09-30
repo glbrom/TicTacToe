@@ -18,11 +18,11 @@ struct GreyButtonView: View {
         Button(action: action, label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-//                    .fill(.appLightBlue)
+                    .fill(.appLightBlue)
                 HStack(alignment: .center) {
                     Image(icon ?? "")
                     Text(buttonTitle)
-//                        .foregroundStyle(.appBlack)
+                        .foregroundStyle(.appBlack)
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
                         .padding(8)
