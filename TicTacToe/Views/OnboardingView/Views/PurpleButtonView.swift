@@ -18,7 +18,6 @@ struct PurpleButtonView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.appBlue)
                    
-                
                 Text(buttonTitle)
                     .foregroundStyle(.white)
                     .font(.system(size: 24, weight: .medium))
