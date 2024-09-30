@@ -9,7 +9,23 @@ import SwiftUI
 
 struct SelectGameView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ZStack {
+                Color.appBackground
+                    .ignoresSafeArea()
+                
+                GreyIconButtonView()
+                
+                VStack(spacing: 20) {
+                    Text("Select Game")
+                        .font(.system(size: 24, weight: .medium))
+                   
+                    GreyButtonView(buttonTitle: "Single Player", icon: "Single-Player-Icon")
+                    
+                    GreyButtonView(buttonTitle: "Two Players", icon: "Single-Player-Icon")
+                }
+            }
+        }
     }
 }
 

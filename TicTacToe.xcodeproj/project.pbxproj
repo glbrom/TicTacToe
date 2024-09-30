@@ -103,8 +103,8 @@
 		EB18AB1E2CAAF5F1001979EB /* SelectGameView */ = {
 			isa = PBXGroup;
 			children = (
-				EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */,
 				EB18AB202CAAF5F1001979EB /* Views */,
+				EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */,
 			);
 			path = SelectGameView;
 			sourceTree = "<group>";

@@ -9,7 +9,12 @@ import SwiftUI
 
 struct GreyIconButtonView: View {
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
+                .frame(width: 285, height: 246)
+                .shadow(radius: 10)
+        }
     }
 }
 
