@@ -19,13 +19,24 @@ struct SelectGameView: View {
                 VStack(spacing: 20) {
                     Text("Select Game")
                         .font(.system(size: 24, weight: .medium))
-                   
-                    GreyButtonView(buttonTitle: "Single Player", icon: "Single-Player-Icon")
-                    
-                    GreyButtonView(buttonTitle: "Two Players", icon: "Single-Player-Icon")
+                    NavigationLink(destination: OnboardingView()) {
+                        GreyButtonView(buttonTitle: "Single Player", icon: "Single-Player-Icon")
+                    }
+                    NavigationLink(destination: OnboardingView()) {
+                        GreyButtonView(buttonTitle: "Two Players", icon: "Two-Players-Icon-2")
+                    }
                 }
             }
+            .toolbar() {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: OnboardingView()) {
+                        Image(systemName: "flame.fill")
+                    }
+                }
+            }
+            
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
