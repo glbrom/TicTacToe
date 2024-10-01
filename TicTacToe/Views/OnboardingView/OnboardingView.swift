@@ -35,14 +35,14 @@ struct OnboardingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink(destination: SelectGameView()) {
-                        Image(systemName: "flame.fill")
+                    NavigationLink(destination: RulesView()) {
+                        Image("RulesIcon")
                     }
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: SelectGameView()) {
-                        Image(systemName: "flame.fill")
+                    NavigationLink(destination: SettingGameView()) {
+                        Image("Setting-Icon")
                     }
                 }
             }
