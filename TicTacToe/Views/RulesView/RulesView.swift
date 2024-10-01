@@ -27,7 +27,7 @@ struct RulesView: View {
                 }) {
                     Image(systemName: "arrow.left") // Иконка стрелки влево
                         .font(.title) // Устанавливаем размер шрифта
-                        .fontWeight(.regular) // Устанавливаем вес шрифта
+                        //.fontWeight(.regular) // Устанавливаем вес шрифта
                         .padding(.horizontal, 20) // Добавляем горизонтальные отступы
                         .foregroundStyle(.black) // Устанавливаем цвет иконки
                 }
@@ -50,7 +50,7 @@ struct RulesView: View {
                         // Иконка с номером правила в круге
                         Image(systemName: "\(rules_number).circle.fill")
                             .font(.system(size: 45)) // Устанавливаем размер шрифта иконки
-                            .fontWeight(.thin) // Устанавливаем тонкий стиль шрифта
+                            //.fontWeight(.thin) // Устанавливаем тонкий стиль шрифта
                             .padding(10) // Добавляем отступы вокруг иконки
                             .foregroundStyle(.black, Color(red: 213/255, green: 193/255, blue: 246/255).opacity(0.8))
                             // Внутри черный, снаружи фиолетовый с прозрачностью
