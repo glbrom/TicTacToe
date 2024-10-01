@@ -10,24 +10,36 @@ import SwiftUI
 struct PurpleButtonView: View {
     
     var buttonTitle: String
+    var color: Color
+    var action: () -> Void
     
     var body: some View {
+        
+        
+        Button (action: action) {
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.appBlue)
-                   
+                RoundedRectangle(cornerRadius: 30)
+                    .fill(color)
+                
                 Text(buttonTitle)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 30)
+                
                     .foregroundStyle(.white)
-                    .font(.system(size: 24, weight: .medium))
-                    .lineLimit(1)
+                    .font(.system(size: 20, weight: .semibold))
                     .minimumScaleFactor(0.5)
-                    .padding(10)
+                    .lineLimit(1)
+                    .allowsTightening(true)
+                
             }
-            .frame(width: 348, height: 72)
+            .background(color)
+            .cornerRadius(30)
+        }
     }
 }
 
 #Preview {
-    PurpleButtonView(buttonTitle: "Let's play")
-        
-}
+    PurpleButtonView(buttonTitle: "Picked", color: .appBlue, action: {})
+        .frame(width: 348, height: 72)
+    }
+

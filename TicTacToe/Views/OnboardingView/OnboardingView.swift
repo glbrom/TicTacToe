@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
+    @State private var isActive = false
+    
     var body: some View {
-        
         NavigationView {
             
             ZStack {
@@ -27,28 +29,35 @@ struct OnboardingView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: SelectGameView()) {
-                        PurpleButtonView(buttonTitle: "Let's Play")
+                    PurpleButtonView(buttonTitle: "Let's Play", color: .appBlue) {
+                        isActive = true
                     }
+                    .frame(width: 348, height: 72)
+                    .padding(.vertical)
+                    
+                    .background(
+                        NavigationLink(destination: SelectGameView(), isActive: $isActive) {
+                        }
+                    )
                     .padding(.vertical, 40)
                 }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink(destination: RulesView()) {
-                        Image("RulesIcon")
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        NavigationLink(destination: RulesView()) {
+                            Image("RulesIcon")
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink(destination: SettingGameView()) {
+                            Image("Setting-Icon")
+                        }
                     }
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: SettingGameView()) {
-                        Image("Setting-Icon")
-                    }
-                }
             }
-            
         }
     }
+    
 }
 
 #Preview {
