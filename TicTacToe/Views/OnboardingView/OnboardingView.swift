@@ -9,13 +9,45 @@ import SwiftUI
 
 struct OnboardingView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationView {
+            
+            ZStack {
+                Color.appBackground
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 30) {
+                    Spacer()
+                    Image("OnboardingLabel")
+                        .resizable()
+                        .frame(width: 260, height: 135)
+                    
+                    Text("TIC-TAC-TOE")
+                        .font(.system(size: 38, weight: .medium))
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: SelectGameView()) {
+                        PurpleButtonView(buttonTitle: "Let's Play")
+                    }
+                    .padding(.vertical, 40)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink(destination: RulesView()) {
+                        Image("RulesIcon")
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: SettingGameView()) {
+                        Image("Setting-Icon")
+                    }
+                }
+            }
+            
         }
-        .padding()
     }
 }
 
