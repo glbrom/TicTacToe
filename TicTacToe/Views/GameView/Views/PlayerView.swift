@@ -25,7 +25,6 @@ struct PlayerView: View {
                
         }
         .frame(width: 100, height: 100)
-        .padding(10)
         .background(Color.appLightBlue)
         .cornerRadius(30)
     }
