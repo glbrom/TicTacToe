@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct GameBoardView: View {
+    var playerIconIndicator: String
+    
+    let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
     var body: some View {
-        Text("Hello, World!")
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                
+                ZStack {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(0..<9) { item in
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(.appLightBlue)
+                                    .cornerRadius(20)
+                                    .frame(
+                                        width: geometry.size.width / 3 - 20,
+                                        height: geometry.size.width / 3 - 20
+                                    )
+                                
+                                Image(playerIconIndicator)
+                                    .resizable()
+                                    .frame(width: 54, height: 54)
+                            }
+                        }
+                    }
+                }
+                
+                Spacer()
+            }
+        }
     }
 }
 
 #Preview {
-    GameBoardView()
+    GameBoardView(playerIconIndicator: "Xskin1")
 }
