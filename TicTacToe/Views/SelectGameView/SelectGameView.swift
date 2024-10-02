@@ -32,7 +32,7 @@ struct SelectGameView: View {
             .toolbar() {
                     ToolbarItem(placement: .topBarTrailing) {
                         NavigationLink(destination: SettingGameView()) {
-                        Image(systemName: "flame.fill")
+                            Image("Setting-Icon")
                     }
                 }
             }
