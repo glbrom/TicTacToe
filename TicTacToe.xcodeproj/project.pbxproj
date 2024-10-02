@@ -13,10 +13,9 @@
 		EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */; };
 		EB18AB382CAAF5F1001979EB /* GreyIconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB212CAAF5F1001979EB /* GreyIconButtonView.swift */; };
 		EB18AB392CAAF5F1001979EB /* GreyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB222CAAF5F1001979EB /* GreyButtonView.swift */; };
-		EB18AB3A2CAAF5F1001979EB /* PurpleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB252CAAF5F1001979EB /* PurpleButtonView.swift */; };
+		EB18AB3A2CAAF5F1001979EB /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB252CAAF5F1001979EB /* ButtonView.swift */; };
 		EB18AB3B2CAAF5F1001979EB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB262CAAF5F1001979EB /* OnboardingView.swift */; };
 		EB18AB3C2CAAF5F1001979EB /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB282CAAF5F1001979EB /* ResultView.swift */; };
-		EB18AB3E2CAAF5F1001979EB /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB2B2CAAF5F1001979EB /* BackButtonView.swift */; };
 		EB18AB3F2CAAF5F1001979EB /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB2D2CAAF5F1001979EB /* GameView.swift */; };
 		EB18AB402CAAF5F1001979EB /* GameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB2F2CAAF5F1001979EB /* GameBoardView.swift */; };
 		EB18AB412CAAF5F1001979EB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB302CAAF5F1001979EB /* PlayerView.swift */; };
@@ -34,10 +33,9 @@
 		EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGameView.swift; sourceTree = "<group>"; };
 		EB18AB212CAAF5F1001979EB /* GreyIconButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyIconButtonView.swift; sourceTree = "<group>"; };
 		EB18AB222CAAF5F1001979EB /* GreyButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyButtonView.swift; sourceTree = "<group>"; };
-		EB18AB252CAAF5F1001979EB /* PurpleButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurpleButtonView.swift; sourceTree = "<group>"; };
+		EB18AB252CAAF5F1001979EB /* ButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		EB18AB262CAAF5F1001979EB /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EB18AB282CAAF5F1001979EB /* ResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		EB18AB2B2CAAF5F1001979EB /* BackButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		EB18AB2D2CAAF5F1001979EB /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		EB18AB2F2CAAF5F1001979EB /* GameBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoardView.swift; sourceTree = "<group>"; };
 		EB18AB302CAAF5F1001979EB /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -128,7 +126,7 @@
 		EB18AB242CAAF5F1001979EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EB18AB252CAAF5F1001979EB /* PurpleButtonView.swift */,
+				EB18AB252CAAF5F1001979EB /* ButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,17 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				EB18AB282CAAF5F1001979EB /* ResultView.swift */,
-				EB18AB292CAAF5F1001979EB /* Views */,
 			);
 			path = ResultView;
-			sourceTree = "<group>";
-		};
-		EB18AB292CAAF5F1001979EB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EB18AB2B2CAAF5F1001979EB /* BackButtonView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		EB18AB2C2CAAF5F1001979EB /* GameView */ = {
@@ -291,9 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB18AB3A2CAAF5F1001979EB /* PurpleButtonView.swift in Sources */,
+				EB18AB3A2CAAF5F1001979EB /* ButtonView.swift in Sources */,
 				EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */,
-				EB18AB3E2CAAF5F1001979EB /* BackButtonView.swift in Sources */,
 				EB18AB412CAAF5F1001979EB /* PlayerView.swift in Sources */,
 				EB18AB3C2CAAF5F1001979EB /* ResultView.swift in Sources */,
 				EB18AB3B2CAAF5F1001979EB /* OnboardingView.swift in Sources */,

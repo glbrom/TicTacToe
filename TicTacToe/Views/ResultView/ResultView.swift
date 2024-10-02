@@ -26,9 +26,8 @@ struct ResultView: View {
         Spacer()
         
         VStack(spacing: 12) {
-            PurpleButtonView(buttonTitle: "Play Again", action: {})
-                .frame(height: 72)
-            BackButtonView(action: {})
+            ButtonView(buttonTitle: "Play Again", isFilled: true, action: {})
+            ButtonView(buttonTitle: "Back", isFilled: false, action: {})
         }
         .padding(21)
     }

@@ -29,7 +29,10 @@ struct OnboardingView: View {
                     
                     Spacer()
                     
-                    PurpleButtonView(buttonTitle: "Let's Play", color: .appBlue) {
+                    ButtonView(
+                        buttonTitle: "Let's Play",
+                        isFilled: true
+                    ) {
                         isActive = true
                     }
                     .frame(width: 348, height: 72)
