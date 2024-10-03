@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64F9D5112CADA7D600F8B02C /* CustomTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */; };
+		DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */; };
 		EB18AB182CAAF5E8001979EB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB172CAAF5E8001979EB /* DataManager.swift */; };
 		EB18AB352CAAF5F1001979EB /* SettingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */; };
 		EB18AB362CAAF5F1001979EB /* XOPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextModifier.swift; sourceTree = "<group>"; };
+		DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGreyModifier.swift; sourceTree = "<group>"; };
 		EB18AB172CAAF5E8001979EB /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingGameView.swift; sourceTree = "<group>"; };
 		EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XOPickerView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */,
+				DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -109,8 +112,8 @@
 		EB18AB1E2CAAF5F1001979EB /* SelectGameView */ = {
 			isa = PBXGroup;
 			children = (
-				EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */,
 				EB18AB202CAAF5F1001979EB /* Views */,
+				EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */,
 			);
 			path = SelectGameView;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			files = (
 				EB18AB3A2CAAF5F1001979EB /* ButtonView.swift in Sources */,
 				EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */,
+				DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */,
 				EB18AB412CAAF5F1001979EB /* PlayerView.swift in Sources */,
 				EB18AB3C2CAAF5F1001979EB /* ResultView.swift in Sources */,
 				EB18AB3B2CAAF5F1001979EB /* OnboardingView.swift in Sources */,
