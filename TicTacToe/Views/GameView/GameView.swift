@@ -30,10 +30,9 @@ struct GameView: View {
                 PlayerView(playerIcon: "Xskin1", playerName: playerOne)
                 Spacer()
                 
-                if isShowGameTime {
-                    Text("1:59")
-                        .font(.system(size: 20, weight: .bold))
-                }
+                Text("1:59")
+                    .font(.system(size: 20, weight: .bold))
+                    .opacity(isShowGameTime ? 1 : 0)
                 
                 Spacer()
                 PlayerView(playerIcon: "Oskin1", playerName: playerTwo)
