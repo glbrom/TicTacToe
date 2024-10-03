@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,10 @@
 		EBB123CE2CAAF2100024EE91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		41FA410C2CAD942200B0F3D4 /* Leaderboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Leaderboard; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		EBB123C12CAAF20E0024EE91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -71,12 +75,13 @@
 		EB18AB192CAAF5F1001979EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB18AB312CAAF5F1001979EB /* RulesView */,
+				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
 				EB18AB1A2CAAF5F1001979EB /* SettingGameView */,
 				EB18AB1E2CAAF5F1001979EB /* SelectGameView */,
 				EB18AB232CAAF5F1001979EB /* OnboardingView */,
 				EB18AB272CAAF5F1001979EB /* ResultView */,
 				EB18AB2C2CAAF5F1001979EB /* GameView */,
-				EB18AB312CAAF5F1001979EB /* RulesView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +240,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
 			);
 			name = TicTacToe;
 			productName = TicTacToe;
