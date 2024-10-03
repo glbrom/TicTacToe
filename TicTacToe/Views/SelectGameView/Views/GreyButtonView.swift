@@ -14,20 +14,19 @@ struct GreyButtonView: View {
     var icon: String
     
     var body: some View {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.appLightBlue)
-                HStack(alignment: .center) {
-                    Image(icon)
-                    Text(buttonTitle)
-                        .foregroundStyle(.appBlack)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.5)
-                        .padding(8)
-                }
+         
+        ZStack{
+            HStack(alignment: .center) {
+                Image(icon)
+                Text(buttonTitle)
             }
-            .frame(width: 244, height: 68)
             .font(.system(size: 20, weight: .medium))
+            .padding(.horizontal, 42)
+            .padding(.vertical, 20)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .background(.appGrey)
+            .cornerRadius(30)
+        }
     }
 }
 

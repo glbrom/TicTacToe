@@ -10,14 +10,12 @@ import SwiftUI
 struct GreyIconButtonView: View {
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.white)
-                .frame(width: 285, height: 246)
-                .shadow(color: .appLightBlue, radius: 10)
+            //
         }
     }
 }
 
 #Preview {
     GreyIconButtonView()
+        .frame(width: 285, height: 246)
 }

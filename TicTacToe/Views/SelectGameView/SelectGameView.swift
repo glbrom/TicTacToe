@@ -14,29 +14,44 @@ struct SelectGameView: View {
                 Color.appBackground
                     .ignoresSafeArea()
                 
-                GreyIconButtonView()
-                
-                VStack(spacing: 20) {
-                    Text("Select Game")
-                        .font(.system(size: 24, weight: .medium))
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.white)
+                        .shadow(color: .appLightBlue, radius: 15)
                     
-                    NavigationLink(destination: GameView()) {
-                        GreyButtonView(buttonTitle: "Single Player", icon: "Single-Player-Icon")
+                    VStack(spacing: 20) {
+                        Text("Select Game")
+                            .font(.system(size: 24, weight: .medium))
+                        
+                        NavigationLink(destination: OnboardingView()) {
+                            HStack(alignment: .center) {
+                                Image("Single-Player-Icon")
+                                Text("Single Player")
+                            }
+                        }
+                        .customGrey()
+                        
+                        NavigationLink(destination: OnboardingView()) {
+                            HStack(alignment: .center) {
+                                Image("Two-Players-Icon")
+                                Text("Two Players")
+                            }
+                        }
+                        .customGrey()
+                        
                     }
-                    
-                    NavigationLink(destination: GameView()) {
-                        GreyButtonView(buttonTitle: "Two Players", icon: "Two-Players-Icon-2")
-                    }
+                    .padding(.horizontal, 20)
                 }
+                .frame(height: 246)
+                .padding(.horizontal, 52)
             }
             .toolbar() {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: SettingGameView()) {
-                            Image("Setting-Icon")
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: SettingGameView()) {
+                        Image("Setting-Icon")
                     }
                 }
             }
-            
         }
         .navigationBarBackButtonHidden(true)
     }
