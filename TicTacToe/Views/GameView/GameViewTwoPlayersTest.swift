@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct GameViewTwoPlayersTest: View {
+    @Environment(\.presentationMode) var presentationMode
     
     @StateObject private var twoPlayersViewModel = TwoPlayersViewModel()
     
-    @State private var isShowGameTime: Bool = true
+    @State private var showSelectGameView: Bool = false
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
     
@@ -20,7 +21,7 @@ struct GameViewTwoPlayersTest: View {
             // Back button view
             HStack {
                 Button(action: {
-                    
+                    presentationMode.wrappedValue.dismiss()
                 }) {
                     Image("Back-Icon")
                         .padding(.horizontal, 20)
@@ -33,9 +34,10 @@ struct GameViewTwoPlayersTest: View {
                 PlayerView(playerIcon: "Xskin1", playerName: playerOne)
                 Spacer()
                 
-                Text("1:59")
-                    .font(.system(size: 20, weight: .bold))
-                    .opacity(isShowGameTime ? 1 : 0)
+                if twoPlayersViewModel.isTimerVisible {
+                    Text(twoPlayersViewModel.formattedTime)
+                        .font(.system(size: 20, weight: .bold))
+                }
                 
                 Spacer()
                 PlayerView(playerIcon: "Oskin1", playerName: playerTwo)
@@ -102,6 +104,12 @@ struct GameViewTwoPlayersTest: View {
             Spacer()
         }
         .background(.appBackground)
+        .onAppear {
+            twoPlayersViewModel.startTimer()
+        }
+        .fullScreenCover(isPresented: $twoPlayersViewModel.isGameOver) {
+            ResultView(text: twoPlayersViewModel.gameResultText, icon: twoPlayersViewModel.resultIcon)
+        }
     }
     
 }

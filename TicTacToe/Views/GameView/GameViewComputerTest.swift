@@ -107,7 +107,7 @@ struct GameViewComputerTest: View {
         }
         .background(.appBackground)
         .onAppear {
-            singlePlayerViewModel.startTimer() 
+            singlePlayerViewModel.startTimer()
         }
         .fullScreenCover(isPresented: $singlePlayerViewModel.isGameOver) {
             ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon)
