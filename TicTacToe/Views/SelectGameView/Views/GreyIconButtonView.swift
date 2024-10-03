@@ -9,10 +9,13 @@ import SwiftUI
 
 struct GreyIconButtonView: View {
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            //
+        }
     }
 }
 
 #Preview {
     GreyIconButtonView()
+        .frame(width: 285, height: 246)
 }

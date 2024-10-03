@@ -13,72 +13,49 @@
 
 import SwiftUI
 
-// Определяем структуру RulesView, которая соответствует протоколу View
 struct RulesView: View {
+    
+    let gameRules: [String] = [
+        "Draw a grid with three rows and three columns, creating nine squares in total.",
+        "Players take turns placing their marker (X or O) in an empty square. To make a move, a player selects a number corresponding to the square where they want to place their marker.",
+        "Player X starts by choosing a square (e.g., square 5). Player O follows by choosing an empty square (e.g., square 1). Continue alternating turns until the game ends.",
+        "The first player to align three of their markers horizontally, vertically, or diagonally wins. Examples of Winning Combinations: Horizontal: Squares 1, 2, 3 or 4, 5, 6 or 7, 8, 9 Vertical: Squares 1, 4, 7 or 2, 5, 8 or 3, 6, 9 Diagonal: Squares 1, 5, 9 or 3, 5,7."
+        ]
     var body: some View {
-        // Основной контейнер для вертикального расположения элементов
-        VStack {
-            // Горизонтальный стек для кнопки и заголовка
-            HStack {
-                // Кнопка для возврата на предыдущий экран
-                Button(action: {
-                    // Действие, которое произойдет при нажатии на кнопку
-                    // Здесь можно добавить код для возврата на предыдущий экран
-                }) {
-                    Image(systemName: "arrow.left") // Иконка стрелки влево
-                        .font(.title) // Устанавливаем размер шрифта
-                        //.fontWeight(.regular) // Устанавливаем вес шрифта
-                        .padding(.horizontal, 20) // Добавляем горизонтальные отступы
-                        .foregroundStyle(.black) // Устанавливаем цвет иконки
-                }
+        
+        NavigationView {
+            VStack {
                 
-                // Заголовок "How to play"
-                Text("How to play")
-                    .font(.title2) // Устанавливаем размер шрифта заголовка
-                    .fontWeight(.bold) // Устанавливаем жирный стиль шрифта
-                    .padding(.horizontal, 50) // Добавляем горизонтальные отступы
-                    .padding(.vertical, 35) // Добавляем вертикальные отступы
-                Spacer() // Заполняем оставшееся пространство справа
-            }
-            
-            // Прокручиваемый контейнер для правил игры
-            ScrollView {
-                // Перебираем ключи словаря game_rules, сортируя их по возрастанию
-                ForEach(game_rules.keys.sorted(), id: \.self) { rules_number in
-                    
-                    HStack {
-                        // Иконка с номером правила в круге
-                        Image(systemName: "\(rules_number).circle.fill")
-                            .font(.system(size: 45)) // Устанавливаем размер шрифта иконки
-                            //.fontWeight(.thin) // Устанавливаем тонкий стиль шрифта
-                            .padding(10) // Добавляем отступы вокруг иконки
-                            .foregroundStyle(.black, Color(red: 213/255, green: 193/255, blue: 246/255).opacity(0.8))
-                            // Внутри черный, снаружи фиолетовый с прозрачностью
+                ScrollView {
+                    ForEach(gameRules.indices, id: \.self) { rules in
+                        RuleRowView(number: rules + 1, text: gameRules[rules])
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                }) {
+                                    Image(systemName: "arrow.left")
+                                        .font(.system(size: 23, weight: .bold))
+                                        .foregroundStyle(.black)
+                                }
 
-                        // Текст правила, получаемый из словаря game_rules по номеру правила
-                        Text("\(game_rules[rules_number] ?? "Rule not found")")
-                            .padding() // Добавляем отступы вокруг текста
-                            .font(.body) // Устанавливаем размер шрифта текста правила
-                            //.background(.blue.opacity(0.1)) // (Закомментировано) Фон для текста (можно использовать)
-                            .background(Color(red: 230/255, green: 233/255, blue: 249/255).opacity(0.8))
-                            // Фон с заданным цветом и прозрачностью
-                            //.padding(20) // (Закомментировано) Дополнительные отступы вокруг текста (можно использовать)
-                            .clipShape(.rect(cornerRadius: 30))
-                            // Закругляем углы фона текста
-
-                        Spacer() // Заполняем оставшееся пространство справа
-                        Spacer() // Дополнительное пространство (можно удалить для оптимизации)
+                                Text("How to play")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .padding(65)
+                            }
+                        }
                     }
                 }
+                .padding(25)
             }
-            
-            Spacer() // Заполняем оставшееся пространство снизу
-            
         }
     }
 }
 
-// Предварительный просмотр представления RulesView в Xcode Canvas или SwiftUI Preview
+
 #Preview {
     RulesView()
 }

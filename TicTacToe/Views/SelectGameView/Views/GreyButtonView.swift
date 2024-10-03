@@ -11,32 +11,28 @@ import SwiftUI
 struct GreyButtonView: View {
     
     var buttonTitle: String
-    var icon: String?
-    var action: () -> Void
+    var icon: String
     
     var body: some View {
-        Button(action: action, label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.appLightBlue)
-                HStack(alignment: .center) {
-                    Image(icon ?? "")
-                    Text(buttonTitle)
-                        .foregroundStyle(.appBlack)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.5)
-                        .padding(8)
-                }
+         
+        ZStack{
+            HStack(alignment: .center) {
+                Image(icon)
+                Text(buttonTitle)
             }
-
             .font(.system(size: 20, weight: .medium))
-        })
+            .padding(.horizontal, 42)
+            .padding(.vertical, 20)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .background(.appGrey)
+            .cornerRadius(30)
+        }
     }
 }
 
 #Preview {
-    GreyButtonView(buttonTitle: "Single Player", icon: "Single-Player-Icon", action: {})
-        .frame(width: 244, height: 68)
+    GreyButtonView(buttonTitle: "Single Player", icon: "Single-Player-Icon")
+        
     
 }
 
