@@ -59,7 +59,7 @@ struct GameView: View {
                     .cornerRadius(30)
                     .shadow(color: Color.appGrey.opacity(0.3), radius: 15, x: 4, y: 4)
                     .overlay {
-                        GameBoardView(playerIconIndicator: "Xskin1")
+                        GameBoardView()
                             .padding(15)
                     }
                     .frame(width: 300, height: 300)

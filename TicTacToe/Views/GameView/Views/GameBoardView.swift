@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct GameBoardView: View {
-    var playerIconIndicator: String
-    
-    let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    @StateObject private var singlePlayerViewModel = SinglePlayViewModel()
+    @StateObject private var viewModel = TwoPlayersViewModel()
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,7 +17,7 @@ struct GameBoardView: View {
                 Spacer()
                 
                 ZStack {
-                    LazyVGrid(columns: columns, spacing: 20) {
+                    LazyVGrid(columns: singlePlayerViewModel.columns, spacing: 20) {
                         ForEach(0..<9) { item in
                             ZStack {
                                 Rectangle()
@@ -29,9 +28,14 @@ struct GameBoardView: View {
                                         height: geometry.size.width / 3 - 20
                                     )
                                 
-                                Image(playerIconIndicator)
+                                Image(singlePlayerViewModel.moves[item]?.indicator ?? "")
+//                                Image(viewModel.moves[item]?.indicator ?? "")
                                     .resizable()
                                     .frame(width: 54, height: 54)
+                            }
+                            .onTapGesture {
+                                singlePlayerViewModel.processPlayerMove(for: item)
+//                                viewModel.processPlayerMove(for: item)
                             }
                         }
                     }
@@ -39,10 +43,11 @@ struct GameBoardView: View {
                 
                 Spacer()
             }
+            .disabled(singlePlayerViewModel.isGameboardDisabled)
         }
     }
 }
 
 #Preview {
-    GameBoardView(playerIconIndicator: "Xskin1")
+    GameBoardView()
 }
