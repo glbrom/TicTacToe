@@ -23,22 +23,21 @@ struct SelectGameView: View {
                         Text("Select Game")
                             .font(.system(size: 24, weight: .medium))
                         
-                        NavigationLink(destination: OnboardingView()) {
+                        NavigationLink(destination: GameView()) {
                             HStack(alignment: .center) {
                                 Image("Single-Player-Icon")
                                 Text("Single Player")
                             }
+                            .customGrey()
                         }
-                        .customGrey()
                         
-                        NavigationLink(destination: OnboardingView()) {
+                        NavigationLink(destination: GameView()) {
                             HStack(alignment: .center) {
                                 Image("Two-Players-Icon")
                                 Text("Two Players")
                             }
+                            .customGrey()
                         }
-                        .customGrey()
-                        
                     }
                     .padding(.horizontal, 20)
                 }
