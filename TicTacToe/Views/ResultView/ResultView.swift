@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ResultView: View {
-    private var text = "Player One win!"
-    private var icon: String = "Win-Icon"
+    var text = "Player One win!"
+    var icon = "Win-Icon"
     
     var body: some View {
         Spacer()

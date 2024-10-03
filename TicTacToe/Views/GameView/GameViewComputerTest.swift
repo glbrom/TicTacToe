@@ -33,9 +33,10 @@ struct GameViewComputerTest: View {
                 PlayerView(playerIcon: "Xskin1", playerName: playerOne)
                 Spacer()
                 
-                Text("1:59")
-                    .font(.system(size: 20, weight: .bold))
-                    .opacity(isShowGameTime ? 1 : 0)
+                if singlePlayerViewModel.isTimerVisible {
+                    Text(singlePlayerViewModel.formattedTime)
+                        .font(.system(size: 20, weight: .bold))
+                }
                 
                 Spacer()
                 PlayerView(playerIcon: "Oskin1", playerName: playerTwo)
@@ -105,6 +106,12 @@ struct GameViewComputerTest: View {
             Spacer()
         }
         .background(.appBackground)
+        .onAppear {
+            singlePlayerViewModel.startTimer() 
+        }
+        .fullScreenCover(isPresented: $singlePlayerViewModel.isGameOver) {
+            ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon)
+        }
     }
     
 }

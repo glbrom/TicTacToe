@@ -17,6 +17,29 @@ final class SinglePlayViewModel: ObservableObject {
     @Published var selectedLevelIndex = 0
     @Published var isGameStarted = false
     
+    // Timer
+    @Published var gameDuration: Int = 0
+    @Published var remainingTime: Int = 1800
+    private var timer: Timer?
+    
+    @Published var isTimerVisible: Bool = true
+    @Published var selectedTimerDuration: Int = 30
+    
+    private var totalTimeInSeconds: Int {
+        selectedTimerDuration * 60
+    }
+    
+    // ResultView icon and text
+    @Published var isGameOver: Bool = false
+    @Published var gameResultText: String = ""
+    @Published var resultIcon: String = ""
+    
+    var formattedTime: String {
+        let minutes = remainingTime / 60
+        let seconds = remainingTime % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
     func processPlayerMove(for position: Int) {
         guard !isSquareOccupied(in: moves, forIndex: position) else { return }
         
@@ -25,15 +48,18 @@ final class SinglePlayViewModel: ObservableObject {
         checkForGameResult(for: .human)
         
         // Computer move
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
-            guard !isGameboardDisabled else { return }
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            guard let self = self, !self.isGameboardDisabled else { return }
             
-            isGameboardDisabled = true
-            let computerPosition = determineComputerMovePosistion(in: moves)
-            moves[computerPosition] = SinglePlayModel.Move(player: .computer, boardIndex: computerPosition)
-            checkForGameResult(for: .computer)
-            
-            isGameboardDisabled = false
+            DispatchQueue.main.async {
+                self.isGameboardDisabled = true
+                
+                let computerPosition = self.determineComputerMovePosistion(in: self.moves)
+                self.moves[computerPosition] = SinglePlayModel.Move(player: .computer, boardIndex: computerPosition)
+                self.checkForGameResult(for: .computer)
+                
+                self.isGameboardDisabled = false
+            }
         }
     }
     
@@ -42,13 +68,24 @@ final class SinglePlayViewModel: ObservableObject {
             // "Human wins"
             if player == .human {
                 // "You Win"
+                gameResultText = "Player One wins!"
+                resultIcon = "Win-Icon"
             } else {
                 // "Computer wins"
+                gameResultText = "You Lose!"
+                resultIcon = "Lose-Icon"
             }
+            stopTimer()
+            saveBestTime()
+            isGameOver = true
             
         } else if checkForDrawCondition(in: moves) {
             // "It's a Draw!"
-            
+            gameResultText = "Draw!"
+            resultIcon = "Draw-Icon"
+            stopTimer()
+            saveBestTime()
+            isGameOver = true
         }
         currentTurn = player == .human ? .computer : .human
     }
@@ -124,8 +161,8 @@ final class SinglePlayViewModel: ObservableObject {
             movePosition = standartMode()
         case 2:
             movePosition = hardMode()
-//        case 3:
-//            movePosition = impossibleMode()
+            //        case 3:
+            //            movePosition = impossibleMode()
         default:
             print("Something is wrong")
         }
@@ -155,5 +192,43 @@ final class SinglePlayViewModel: ObservableObject {
         moves = Array(repeating: nil, count: 9)
         isGameStarted = false
         currentTurn = .human
+        stopTimer()
     }
+    
+    // Timer
+    func startTimer() {
+        remainingTime = totalTimeInSeconds
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            if self.remainingTime > 0 {
+                self.remainingTime -= 1
+            } else {
+                self.timer?.invalidate()
+                self.endGame()
+            }
+        }
+    }
+    
+    func endGame() {
+        print("Game Over. Remaining time: \(remainingTime) seconds")
+    }
+    
+    func saveBestTime() {
+        let bestTime = UserDefaults.standard.integer(forKey: "BestTime")
+        if gameDuration < bestTime || bestTime == 0 {
+            UserDefaults.standard.set(gameDuration, forKey: "BestTime")
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        gameDuration = 1800 - remainingTime
+    }
+    
+    deinit {
+        timer?.invalidate()
+    }
+    
 }
