@@ -38,10 +38,18 @@ struct SelectGameView: View {
                             }
                             .customGrey()
                         }
+                        
+                        NavigationLink(destination: GameView()) {
+                            HStack(alignment: .center) {
+                                Image("Two-Players-Icon-2")
+                                Text("Leaderboard")
+                            }
+                            .customGrey()
+                        }
                     }
                     .padding(.horizontal, 20)
                 }
-                .frame(height: 246)
+                .frame(height: 336)
                 .padding(.horizontal, 52)
             }
             .toolbar() {
