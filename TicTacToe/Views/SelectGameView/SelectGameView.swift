@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SelectGameView: View {
+    
+    @State var isSinglePlayerPresented = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,12 +26,17 @@ struct SelectGameView: View {
                         Text("Select Game")
                             .font(.system(size: 24, weight: .medium))
                         
-                        NavigationLink(destination: GameView()) {
+                        Button(action: {
+                            isSinglePlayerPresented.toggle()
+                        }) {
                             HStack(alignment: .center) {
                                 Image("Single-Player-Icon")
                                 Text("Single Player")
                             }
                             .customGrey()
+                        }
+                        .sheet(isPresented: $isSinglePlayerPresented) {
+                            SelectGame2View()
                         }
                         
                         NavigationLink(destination: GameView()) {
