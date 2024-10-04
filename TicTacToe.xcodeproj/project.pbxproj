@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		64F9D5112CADA7D600F8B02C /* CustomTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */; };
 		DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */; };
+		DC8D9C722CAFAFA1004990FA /* SelectGame2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */; };
 		EB18AB182CAAF5E8001979EB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB172CAAF5E8001979EB /* DataManager.swift */; };
 		EB18AB352CAAF5F1001979EB /* SettingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */; };
 		EB18AB362CAAF5F1001979EB /* XOPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextModifier.swift; sourceTree = "<group>"; };
 		DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGreyModifier.swift; sourceTree = "<group>"; };
+		DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGame2View.swift; sourceTree = "<group>"; };
 		EB18AB172CAAF5E8001979EB /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingGameView.swift; sourceTree = "<group>"; };
 		EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XOPickerView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		DC8D9C702CAFAF40004990FA /* SelectGame2View */ = {
+			isa = PBXGroup;
+			children = (
+				DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */,
+			);
+			path = SelectGame2View;
+			sourceTree = "<group>";
+		};
 		EB18AB162CAAF5E8001979EB /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
 				EB18AB1A2CAAF5F1001979EB /* SettingGameView */,
 				EB18AB1E2CAAF5F1001979EB /* SelectGameView */,
+				DC8D9C702CAFAF40004990FA /* SelectGame2View */,
 				EB18AB232CAAF5F1001979EB /* OnboardingView */,
 				EB18AB272CAAF5F1001979EB /* ResultView */,
 				EB18AB2C2CAAF5F1001979EB /* GameView */,
@@ -357,6 +368,7 @@
 				EB28D10D2CAE8B9D001A1F0F /* SinglePlayModel.swift in Sources */,
 				EB18AB402CAAF5F1001979EB /* GameBoardView.swift in Sources */,
 				EB18AB392CAAF5F1001979EB /* GreyButtonView.swift in Sources */,
+				DC8D9C722CAFAFA1004990FA /* SelectGame2View.swift in Sources */,
 				EB18AB352CAAF5F1001979EB /* SettingGameView.swift in Sources */,
 				EB18AB422CAAF5F1001979EB /* RulesView.swift in Sources */,
 				EB28D1192CAEE3CB001A1F0F /* GameViewTwoPlayersTest.swift in Sources */,
