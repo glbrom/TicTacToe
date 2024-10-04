@@ -38,7 +38,7 @@ struct RulesView: View {
                                 }) {
                                     Image(systemName: "arrow.left")
                                         .font(.system(size: 23, weight: .bold))
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(.appBlack)
                                 }
 
                                 Text("How to play")
