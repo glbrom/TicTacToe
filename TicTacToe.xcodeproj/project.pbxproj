@@ -306,9 +306,9 @@
 		EBB123C62CAAF20E0024EE91 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				EBB123C72CAAF20E0024EE91 /* TicTacToeApp.swift */,
 				64DF631C2CB18526001D7E12 /* Helpers */,
 				64DF63202CB18526001D7E12 /* Music File */,
-				EBB123C72CAAF20E0024EE91 /* TicTacToeApp.swift */,
 				64F9D50F2CADA79A00F8B02C /* Modifiers */,
 				EB18AB162CAAF5E8001979EB /* Services */,
 				EB18AB192CAAF5F1001979EB /* Views */,
