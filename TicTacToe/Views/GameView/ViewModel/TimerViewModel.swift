@@ -11,6 +11,7 @@ final class TimerViewModel: ObservableObject {
     @Published var remainingTime: Int = 0
     @Published var elapsedTime: Int = 0
     @Published var isTimerVisible: Bool = SettingGameViewModel().gameToggle
+    
     private var timer: Timer?
     
     var totalTimeInSeconds: Int {
@@ -44,7 +45,6 @@ final class TimerViewModel: ObservableObject {
                 self.endGame()
             }
         }
-        isTimerVisible = true
     }
     
     func resetTimer() {
@@ -56,7 +56,6 @@ final class TimerViewModel: ObservableObject {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
-        isTimerVisible = true
     }
     
     func endGame() {
@@ -85,4 +84,3 @@ final class TimerViewModel: ObservableObject {
         stopTimer()
     }
 }
-

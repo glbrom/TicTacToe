@@ -9,7 +9,6 @@ import SwiftUI
 
 final class SinglePlayViewModel: ObservableObject {
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-    let levels: [String] = ["Easy", "Standart", "Hard"]
     
     @Published var selectedLevel: DifficultyLevel = .easy
     
@@ -18,7 +17,7 @@ final class SinglePlayViewModel: ObservableObject {
     @Published var currentTurn: SinglePlayModel.Player = .human
     @Published var isGameStarted = false
     
-    // add icon with SettingGame
+    // Add icon with SettingGame
     @Published var humanIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[0] ?? "Xskin1"
     @Published var computerIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[1] ?? "Oskin1"
     
@@ -34,6 +33,7 @@ final class SinglePlayViewModel: ObservableObject {
         self.selectedLevel = selectedLevel
     }
     
+    // Process player's move
     func processPlayerMove(for position: Int) {
         guard !isSquareOccupied(in: moves, forIndex: position) else { return }
         // Processing human player move
@@ -64,11 +64,11 @@ final class SinglePlayViewModel: ObservableObject {
         }
     }
     
+    // Check for win or draw
     func checkForGameResult(for player: SinglePlayModel.Player) -> Bool {
         if checkWinCondition(for: player, in: moves) {
             // "Human wins"
             if player == .human {
-                // "You Win"
                 gameResultText = "Player One wins!"
                 resultIcon = "Win-Icon"
             } else {
@@ -78,7 +78,6 @@ final class SinglePlayViewModel: ObservableObject {
             }
             timerViewModel.stopTimer()
             timerViewModel.saveGameTime()
-            //            saveBestTime()
             isGameOver = true
             return true
             
@@ -87,7 +86,6 @@ final class SinglePlayViewModel: ObservableObject {
             gameResultText = "Draw!"
             resultIcon = "Draw-Icon"
             timerViewModel.stopTimer()
-            //            saveBestTime()
             isGameOver = true
             return true
         }
@@ -140,7 +138,6 @@ final class SinglePlayViewModel: ObservableObject {
             return standartMode()
         case .hard:
             return hardMode()
-            
         }
     }
     

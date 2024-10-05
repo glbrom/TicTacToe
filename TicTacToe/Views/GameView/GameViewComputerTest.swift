@@ -128,5 +128,5 @@ struct GameViewComputerTest: View {
 
 
 #Preview {
-    GameViewComputerTest(selectedDifficulty: .easy)
+    GameViewComputerTest(selectedDifficulty: .standard)
 }

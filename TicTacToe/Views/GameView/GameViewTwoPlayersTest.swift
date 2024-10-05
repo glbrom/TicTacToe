@@ -17,14 +17,9 @@ struct GameViewTwoPlayersTest: View {
     @State private var shoowSelectGameView: Bool = false
     
     var body: some View {
-        //        NavigationView {
         VStack {
             // Back button view
             HStack {
-                //                    NavigationLink(destination: SelectGameView()) {
-                //                                          Image("Back-Icon")
-                //                                              .padding(.horizontal, 20)
-                //                                      }
                 Button(action: {
                     shoowSelectGameView = true
                 }) {
@@ -119,7 +114,6 @@ struct GameViewTwoPlayersTest: View {
             SelectGameView()
         }
         .navigationBarBackButtonHidden(true)
-        //        }
     }
     
 }

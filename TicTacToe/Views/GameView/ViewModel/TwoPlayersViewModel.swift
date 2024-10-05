@@ -14,11 +14,12 @@ final class TwoPlayersViewModel: ObservableObject {
     @Published var moves: [TwoPlayersModel.Move?] = Array(repeating: nil, count: 9)
     @Published var currentTurn: TwoPlayersModel.Player = .playerOne
     
+    // ResultView icon and text
     @Published var isGameOver: Bool = false
     @Published var gameResultText: String = ""
     @Published var resultIcon: String = ""
     
-    // add icon with SettingGame
+    // Add icon with SettingGame
     @Published var playerOneIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[0] ?? "Xskin1"
     @Published var playerTwoIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[1] ?? "Oskin1"
     
