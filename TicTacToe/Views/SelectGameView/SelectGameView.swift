@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SelectGameView: View {
+    
+    @State var isSinglePlayerPresented = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,30 +26,43 @@ struct SelectGameView: View {
                         Text("Select Game")
                             .font(.system(size: 24, weight: .medium))
                         
-                        NavigationLink(destination: GameView()) {
+                        Button(action: {
+                            isSinglePlayerPresented.toggle()
+                        }) {
                             HStack(alignment: .center) {
                                 Image("Single-Player-Icon")
                                 Text("Single Player")
                             }
                             .customGrey()
                         }
+                        .sheet(isPresented: $isSinglePlayerPresented) {
+                            SelectGame2View()
+                        }
                         
-                        NavigationLink(destination: GameView()) {
+                        NavigationLink(destination: GameViewTwoPlayersTest()) {
                             HStack(alignment: .center) {
                                 Image("Two-Players-Icon")
                                 Text("Two Players")
                             }
                             .customGrey()
                         }
+                        
+                        NavigationLink(destination: LeaderboardView()) {
+                            HStack(alignment: .center) {
+                                Image("Two-Players-Icon-2")
+                                Text("Leaderboard")
+                            }
+                            .customGrey()
+                        }
                     }
                     .padding(.horizontal, 20)
                 }
-                .frame(height: 246)
+                .frame(height: 336)
                 .padding(.horizontal, 52)
             }
             .toolbar() {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: SettingGameView()) {
+                    NavigationLink(destination: SettingGameView(model: SettingGameViewModel())) {
                         Image("Setting-Icon")
                     }
                 }

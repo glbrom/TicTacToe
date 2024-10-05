@@ -3,14 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64DF63122CB18503001D7E12 /* SettingGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63112CB18503001D7E12 /* SettingGameViewModel.swift */; };
+		64DF63132CB18503001D7E12 /* SettingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63102CB18503001D7E12 /* SettingGameView.swift */; };
+		64DF63172CB18514001D7E12 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63142CB18514001D7E12 /* PickerView.swift */; };
+		64DF63182CB18514001D7E12 /* SelectableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63152CB18514001D7E12 /* SelectableView.swift */; };
+		64DF63192CB18514001D7E12 /* SettingLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63162CB18514001D7E12 /* SettingLabelView.swift */; };
+		64DF63212CB18526001D7E12 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF631A2CB18526001D7E12 /* Extension+View.swift */; };
+		64DF63222CB18526001D7E12 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF631B2CB18526001D7E12 /* Music.swift */; };
+		64DF63232CB18526001D7E12 /* Classical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64DF631D2CB18526001D7E12 /* Classical.mp3 */; };
+		64DF63242CB18526001D7E12 /* Instrumentals.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64DF631E2CB18526001D7E12 /* Instrumentals.mp3 */; };
+		64DF63252CB18526001D7E12 /* Nature.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64DF631F2CB18526001D7E12 /* Nature.mp3 */; };
 		64F9D5112CADA7D600F8B02C /* CustomTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */; };
 		DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */; };
+		DC8D9C722CAFAFA1004990FA /* SelectGame2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */; };
 		EB18AB182CAAF5E8001979EB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB172CAAF5E8001979EB /* DataManager.swift */; };
-		EB18AB352CAAF5F1001979EB /* SettingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */; };
 		EB18AB362CAAF5F1001979EB /* XOPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */; };
 		EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */; };
 		EB18AB382CAAF5F1001979EB /* GreyIconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB212CAAF5F1001979EB /* GreyIconButtonView.swift */; };
@@ -38,10 +48,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64DF63102CB18503001D7E12 /* SettingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGameView.swift; sourceTree = "<group>"; };
+		64DF63112CB18503001D7E12 /* SettingGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGameViewModel.swift; sourceTree = "<group>"; };
+		64DF63142CB18514001D7E12 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		64DF63152CB18514001D7E12 /* SelectableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableView.swift; sourceTree = "<group>"; };
+		64DF63162CB18514001D7E12 /* SettingLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLabelView.swift; sourceTree = "<group>"; };
+		64DF631A2CB18526001D7E12 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		64DF631B2CB18526001D7E12 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		64DF631D2CB18526001D7E12 /* Classical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Classical.mp3; sourceTree = "<group>"; };
+		64DF631E2CB18526001D7E12 /* Instrumentals.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Instrumentals.mp3; sourceTree = "<group>"; };
+		64DF631F2CB18526001D7E12 /* Nature.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nature.mp3; sourceTree = "<group>"; };
 		64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextModifier.swift; sourceTree = "<group>"; };
 		DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGreyModifier.swift; sourceTree = "<group>"; };
+		DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGame2View.swift; sourceTree = "<group>"; };
 		EB18AB172CAAF5E8001979EB /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingGameView.swift; sourceTree = "<group>"; };
 		EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XOPickerView.swift; sourceTree = "<group>"; };
 		EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGameView.swift; sourceTree = "<group>"; };
 		EB18AB212CAAF5F1001979EB /* GreyIconButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyIconButtonView.swift; sourceTree = "<group>"; };
@@ -69,6 +89,10 @@
 		EBB123CE2CAAF2100024EE91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		41FA410C2CAD942200B0F3D4 /* Leaderboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Leaderboard; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		EBB123C12CAAF20E0024EE91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -80,6 +104,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64DF631C2CB18526001D7E12 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				64DF631A2CB18526001D7E12 /* Extension+View.swift */,
+				64DF631B2CB18526001D7E12 /* Music.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		64DF63202CB18526001D7E12 /* Music File */ = {
+			isa = PBXGroup;
+			children = (
+				64DF631D2CB18526001D7E12 /* Classical.mp3 */,
+				64DF631E2CB18526001D7E12 /* Instrumentals.mp3 */,
+				64DF631F2CB18526001D7E12 /* Nature.mp3 */,
+			);
+			path = "Music File";
+			sourceTree = "<group>";
+		};
 		64F9D50F2CADA79A00F8B02C /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +130,14 @@
 				DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		DC8D9C702CAFAF40004990FA /* SelectGame2View */ = {
+			isa = PBXGroup;
+			children = (
+				DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */,
+			);
+			path = SelectGame2View;
 			sourceTree = "<group>";
 		};
 		EB18AB162CAAF5E8001979EB /* Services */ = {
@@ -100,12 +151,14 @@
 		EB18AB192CAAF5F1001979EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB18AB312CAAF5F1001979EB /* RulesView */,
+				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
 				EB18AB1A2CAAF5F1001979EB /* SettingGameView */,
 				EB18AB1E2CAAF5F1001979EB /* SelectGameView */,
+				DC8D9C702CAFAF40004990FA /* SelectGame2View */,
 				EB18AB232CAAF5F1001979EB /* OnboardingView */,
 				EB18AB272CAAF5F1001979EB /* ResultView */,
 				EB18AB2C2CAAF5F1001979EB /* GameView */,
-				EB18AB312CAAF5F1001979EB /* RulesView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,7 +166,8 @@
 		EB18AB1A2CAAF5F1001979EB /* SettingGameView */ = {
 			isa = PBXGroup;
 			children = (
-				EB18AB1B2CAAF5F1001979EB /* SettingGameView.swift */,
+				64DF63102CB18503001D7E12 /* SettingGameView.swift */,
+				64DF63112CB18503001D7E12 /* SettingGameViewModel.swift */,
 				EB18AB1C2CAAF5F1001979EB /* Views */,
 			);
 			path = SettingGameView;
@@ -122,6 +176,9 @@
 		EB18AB1C2CAAF5F1001979EB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64DF63142CB18514001D7E12 /* PickerView.swift */,
+				64DF63152CB18514001D7E12 /* SelectableView.swift */,
+				64DF63162CB18514001D7E12 /* SettingLabelView.swift */,
 				EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */,
 			);
 			path = Views;
@@ -249,6 +306,8 @@
 		EBB123C62CAAF20E0024EE91 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				64DF631C2CB18526001D7E12 /* Helpers */,
+				64DF63202CB18526001D7E12 /* Music File */,
 				EBB123C72CAAF20E0024EE91 /* TicTacToeApp.swift */,
 				64F9D50F2CADA79A00F8B02C /* Modifiers */,
 				EB18AB162CAAF5E8001979EB /* Services */,
@@ -281,6 +340,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
 			);
 			name = TicTacToe;
 			productName = TicTacToe;
@@ -325,6 +387,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DF63232CB18526001D7E12 /* Classical.mp3 in Resources */,
+				64DF63242CB18526001D7E12 /* Instrumentals.mp3 in Resources */,
+				64DF63252CB18526001D7E12 /* Nature.mp3 in Resources */,
 				EBB123CF2CAAF2100024EE91 /* Preview Assets.xcassets in Resources */,
 				EBB123CC2CAAF2100024EE91 /* Assets.xcassets in Resources */,
 			);
@@ -341,8 +406,12 @@
 				EB4ABA482CB171390003028C /* DifficultyLevel.swift in Sources */,
 				EB28D10F2CAE8C2C001A1F0F /* TwoPlayersModel.swift in Sources */,
 				EB28D1172CAEC052001A1F0F /* GameViewComputerTest.swift in Sources */,
+				64DF63122CB18503001D7E12 /* SettingGameViewModel.swift in Sources */,
+				64DF63132CB18503001D7E12 /* SettingGameView.swift in Sources */,
 				EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */,
 				DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */,
+				64DF63212CB18526001D7E12 /* Extension+View.swift in Sources */,
+				64DF63222CB18526001D7E12 /* Music.swift in Sources */,
 				EB18AB412CAAF5F1001979EB /* PlayerView.swift in Sources */,
 				EB28D1112CAE8E0D001A1F0F /* GameLogicModel.swift in Sources */,
 				EB18AB3C2CAAF5F1001979EB /* ResultView.swift in Sources */,
@@ -353,11 +422,14 @@
 				EBB123C82CAAF20E0024EE91 /* TicTacToeApp.swift in Sources */,
 				EB18AB382CAAF5F1001979EB /* GreyIconButtonView.swift in Sources */,
 				EB28D1132CAE8E46001A1F0F /* SinglePlayViewModel.swift in Sources */,
+				64DF63172CB18514001D7E12 /* PickerView.swift in Sources */,
+				64DF63182CB18514001D7E12 /* SelectableView.swift in Sources */,
+				64DF63192CB18514001D7E12 /* SettingLabelView.swift in Sources */,
 				EB28D10D2CAE8B9D001A1F0F /* SinglePlayModel.swift in Sources */,
 				EB18AB402CAAF5F1001979EB /* GameBoardView.swift in Sources */,
 				EB4ABA4A2CB171600003028C /* GameMode.swift in Sources */,
 				EB18AB392CAAF5F1001979EB /* GreyButtonView.swift in Sources */,
-				EB18AB352CAAF5F1001979EB /* SettingGameView.swift in Sources */,
+				DC8D9C722CAFAFA1004990FA /* SelectGame2View.swift in Sources */,
 				EB18AB422CAAF5F1001979EB /* RulesView.swift in Sources */,
 				EB28D1192CAEE3CB001A1F0F /* GameViewTwoPlayersTest.swift in Sources */,
 				EB18AB362CAAF5F1001979EB /* XOPickerView.swift in Sources */,
