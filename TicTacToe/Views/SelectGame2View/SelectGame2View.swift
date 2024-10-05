@@ -7,60 +7,71 @@
 
 import SwiftUI
 
+//struct SelectGame2View: View {
+//    var body: some View {
+//        NavigationView {
+//            VStack {
+//                NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
+//                    Text("Go to Easy Game")
+//                }
+//            }
+//        }
+//    }
+//}
+
 struct SelectGame2View: View {
     var body: some View {
-        ZStack {
-            Color.appBackground
-                .ignoresSafeArea()
-            
+        NavigationView {
             ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(.white)
-                    .shadow(color: .appLightBlue, radius: 15)
                 
-                VStack(spacing: 20) {
-                    Text("Select Game")
-                        .font(.system(size: 24, weight: .medium))
+                
+                Color.appBackground
+                    .ignoresSafeArea()
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.white)
+                        .shadow(color: .appLightBlue, radius: 15)
                     
-                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
-                        HStack(alignment: .center) {
-                            Image("Easy-Icon")
-                            Text("Easy")
+                    VStack(spacing: 20) {
+                        Text("Select Game")
+                            .font(.system(size: 24, weight: .medium))
+                        
+                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
+                            HStack(alignment: .center) {
+                                Image("Easy-Icon")
+                                Text("Easy")
+                            }
+                            .customGrey()
+                            .onAppear {
+                                print("Easy button tapped")
+                            }
                         }
-                        .customGrey()
-                    }
-                    
-                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .standard)) {
-                        HStack(alignment: .center) {
-                            Image("Medium-Icon")
-                            Text("Medium")
+                        
+                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .standard)) {
+                            HStack(alignment: .center) {
+                                Image("Medium-Icon")
+                                Text("Medium")
+                            }
+                            .customGrey()
                         }
-                        .customGrey()
-                    }
-                    
-                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .hard)) {
-                        HStack(alignment: .center) {
-                            Image("Hard-Icon")
-                            Text("Hard")
+                        
+                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .hard)) {
+                            HStack(alignment: .center) {
+                                Image("Hard-Icon")
+                                Text("Hard")
+                            }
+                            .customGrey()
                         }
-                        .customGrey()
                     }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
+                .frame(height: 336)
+                .padding(.horizontal, 52)
             }
-            .frame(height: 336)
-            .padding(.horizontal, 52)
-        }
-        .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(true)
+        } 
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 #Preview {
