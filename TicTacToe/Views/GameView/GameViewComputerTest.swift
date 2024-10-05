@@ -10,8 +10,8 @@ import SwiftUI
 struct GameViewComputerTest: View {
     
     @StateObject private var singlePlayerViewModel = SinglePlayViewModel()
+    @StateObject private var timerViewModel = TimerViewModel()
     
-//    @State private var isShowGameTime: Bool = true
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
     @State private var showSelectGameView: Bool = false
@@ -38,8 +38,8 @@ struct GameViewComputerTest: View {
                 PlayerView(playerIcon: singlePlayerViewModel.humanIcon, playerName: playerOne)
                 Spacer()
                 
-                if singlePlayerViewModel.isTimerVisible {
-                    Text(singlePlayerViewModel.formattedTime)
+                if timerViewModel.isTimerVisible {
+                    Text(timerViewModel.formattedTime)
                         .font(.system(size: 20, weight: .bold))
                 }
                 
@@ -112,7 +112,7 @@ struct GameViewComputerTest: View {
         }
         .background(.appBackground)
         .onAppear {
-            singlePlayerViewModel.startTimer()
+            timerViewModel.startTimer()
         }
         .fullScreenCover(isPresented: $singlePlayerViewModel.isGameOver) {
             ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon, gameMode: .computer)

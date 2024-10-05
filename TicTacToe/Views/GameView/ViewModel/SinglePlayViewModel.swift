@@ -16,35 +16,19 @@ final class SinglePlayViewModel: ObservableObject {
     @Published var moves: [SinglePlayModel.Move?] = Array(repeating: nil, count: 9)
     @Published var isGameboardDisabled = false
     @Published var currentTurn: SinglePlayModel.Player = .human
-    //    @Published var selectedLevelIndex = 0
     @Published var isGameStarted = false
     
+    // add icon with SettingGame
     @Published var humanIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[0] ?? "Xskin1"
     @Published var computerIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[1] ?? "Oskin1"
     
     // Timer
-    @Published var gameDuration: Int = 0
-    @Published var remainingTime: Int = 30
-    private var timer: Timer?
-    
-    @Published var isTimerVisible: Bool = SettingGameViewModel().gameToggle
-
-    @Published var selectedTimerDuration: Int = 60 // time 30 60 120 sec
-    
-    private var totalTimeInSeconds: Int {
-        selectedTimerDuration
-    }
+    @Published var timerViewModel = TimerViewModel()
     
     // ResultView icon and text
     @Published var isGameOver: Bool = false
     @Published var gameResultText: String = ""
     @Published var resultIcon: String = ""
-    
-    var formattedTime: String {
-        let minutes = remainingTime / 60
-        let seconds = remainingTime % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
     
     init(selectedLevel: DifficultyLevel = .easy) {
         self.selectedLevel = selectedLevel
@@ -60,7 +44,7 @@ final class SinglePlayViewModel: ObservableObject {
             return
         }
         
-//        currentTurn = .computer
+        //        currentTurn = .computer
         
         // Computer move
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
@@ -92,8 +76,8 @@ final class SinglePlayViewModel: ObservableObject {
                 gameResultText = "You Lose!"
                 resultIcon = "Lose-Icon"
             }
-            stopTimer()
-            saveBestTime()
+            timerViewModel.stopTimer()
+            //            saveBestTime()
             isGameOver = true
             return true
             
@@ -101,12 +85,12 @@ final class SinglePlayViewModel: ObservableObject {
             // "It's a Draw!"
             gameResultText = "Draw!"
             resultIcon = "Draw-Icon"
-            stopTimer()
-            saveBestTime()
+            timerViewModel.stopTimer()
+            //            saveBestTime()
             isGameOver = true
             return true
         }
-                currentTurn = player == .human ? .computer : .human
+        currentTurn = player == .human ? .computer : .human
         
         return false
     }
@@ -120,8 +104,6 @@ final class SinglePlayViewModel: ObservableObject {
         
         let logicModel = GameLogicModel(currentMove: moves)
         let winPatterns: Set<Set<Int>> = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
-        
-        //        var movePosition: Int = 0
         
         func easyMode() -> Int {
             // Pick a random square
@@ -150,30 +132,6 @@ final class SinglePlayViewModel: ObservableObject {
             return hardMode()
         }
         
-        //                func hardMode() -> Int {
-        //                    // If AI can win, then win the game
-        //                    let winGame = logicModel.winGame(patterns: winPatterns)
-        //                    if (winGame != -1) { return winGame }
-        //        
-        //                    // If AI can't win the game, then block a possible win
-        //                    let blockPossibleWin = logicModel.blockWin(patterns: winPatterns)
-        //                    if (blockPossibleWin != -1) { return blockPossibleWin }
-        //        
-        //                    // If there's no win to be blocked, then pick the middle square
-        //                    let middleSquare = logicModel.pickMiddleSquare()
-        //                    if (middleSquare != -1) { return middleSquare }
-        //        
-        //                    // If AI can't pick middle square because is yours, then pick a square above the middle
-        //                    let secondSquare = logicModel.pickMiddleSquare()
-        //                    if (secondSquare != -1) { return secondSquare }
-        //        
-        //                    // If AI can't pick middle square because is not yours, then pick a corner square
-        //                    let cornerSquare = logicModel.pickCornerSquare()
-        //                    if (cornerSquare != -1) { return cornerSquare }
-        //        
-        //                    // If AI can't pick corner square, then pick a random square
-        //                    return easyMode()
-        //                }
         switch selectedLevel {
         case .easy:
             return easyMode()
@@ -183,21 +141,6 @@ final class SinglePlayViewModel: ObservableObject {
             return hardMode()
             
         }
-        
-        //        switch(selectedLevelIndex) {
-        //        case 0:
-        //            movePosition = easyMode()
-        //        case 1:
-        //            movePosition = standartMode()
-        //        case 2:
-        //            movePosition = hardMode()
-        //            //        case 3:
-        //            //            movePosition = impossibleMode()
-        //        default:
-        //            print("Something is wrong")
-        //        }
-        //        
-        //        return movePosition
     }
     
     func checkWinCondition(for player: SinglePlayModel.Player, in moves: [SinglePlayModel.Move?]) -> Bool {
@@ -222,43 +165,7 @@ final class SinglePlayViewModel: ObservableObject {
         moves = Array(repeating: nil, count: 9)
         isGameStarted = false
         currentTurn = .human
-        stopTimer()
-    }
-    
-    // Timer
-    func startTimer() {
-        remainingTime = totalTimeInSeconds
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            if self.remainingTime > 0 {
-                self.remainingTime -= 1
-            } else {
-                self.timer?.invalidate()
-                self.endGame()
-            }
-        }
-    }
-    
-    func endGame() {
-        print("Game Over. Remaining time: \(remainingTime) seconds")
-    }
-    
-    func saveBestTime() {
-        let bestTime = UserDefaults.standard.integer(forKey: "BestTime")
-        if gameDuration < bestTime || bestTime == 0 {
-            UserDefaults.standard.set(gameDuration, forKey: "BestTime")
-        }
-    }
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        gameDuration = 1800 - remainingTime
-    }
-    
-    deinit {
-        timer?.invalidate()
+        timerViewModel.stopTimer()
     }
     
 }
