@@ -19,12 +19,16 @@ final class SinglePlayViewModel: ObservableObject {
     //    @Published var selectedLevelIndex = 0
     @Published var isGameStarted = false
     
+    @Published var humanIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[0] ?? "Xskin1"
+    @Published var computerIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[1] ?? "Oskin1"
+    
     // Timer
     @Published var gameDuration: Int = 0
     @Published var remainingTime: Int = 30
     private var timer: Timer?
     
-    @Published var isTimerVisible: Bool = true
+    @Published var isTimerVisible: Bool = SettingGameViewModel().gameToggle
+
     @Published var selectedTimerDuration: Int = 60 // time 30 60 120 sec
     
     private var totalTimeInSeconds: Int {
@@ -48,14 +52,15 @@ final class SinglePlayViewModel: ObservableObject {
     
     func processPlayerMove(for position: Int) {
         guard !isSquareOccupied(in: moves, forIndex: position) else { return }
-        
         // Processing human player move
-        moves[position] = SinglePlayModel.Move(player: .human, boardIndex: position)
+        moves[position] = SinglePlayModel.Move(player: .human, boardIndex: position, humanIcon: humanIcon, computerIcon: computerIcon)
         //        checkForGameResult(for: .human)
         
         if checkForGameResult(for: .human) {
             return
         }
+        
+//        currentTurn = .computer
         
         // Computer move
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
@@ -65,7 +70,7 @@ final class SinglePlayViewModel: ObservableObject {
                 self.isGameboardDisabled = true
                 
                 let computerPosition = self.determineComputerMovePosistion(in: self.moves)
-                self.moves[computerPosition] = SinglePlayModel.Move(player: .computer, boardIndex: computerPosition)
+                self.moves[computerPosition] = SinglePlayModel.Move(player: .computer, boardIndex: computerPosition, humanIcon: self.humanIcon, computerIcon: self.computerIcon)
                 //                self.checkForGameResult(for: .computer)
                 if self.checkForGameResult(for: .computer) {
                     return // Exit if the game is over
@@ -101,7 +106,7 @@ final class SinglePlayViewModel: ObservableObject {
             isGameOver = true
             return true
         }
-        //        currentTurn = player == .human ? .computer : .human
+                currentTurn = player == .human ? .computer : .human
         
         return false
     }

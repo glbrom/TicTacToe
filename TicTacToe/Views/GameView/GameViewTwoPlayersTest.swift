@@ -11,7 +11,7 @@ struct GameViewTwoPlayersTest: View {
     
     @StateObject private var twoPlayersViewModel = TwoPlayersViewModel()
     
-    @State private var showSelectGameView: Bool = false
+//    @State private var showSelectGameView: Bool = false
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
     @State private var shoowSelectGameView: Bool = false
@@ -36,7 +36,7 @@ struct GameViewTwoPlayersTest: View {
             
             // PlayerView and Timer on/off
             HStack(alignment: .center) {
-                PlayerView(playerIcon: "Xskin1", playerName: playerOne)
+                PlayerView(playerIcon: twoPlayersViewModel.playerOneIcon, playerName: playerOne)
                 Spacer()
                 
                 if twoPlayersViewModel.isTimerVisible {
@@ -45,14 +45,14 @@ struct GameViewTwoPlayersTest: View {
                 }
                 
                 Spacer()
-                PlayerView(playerIcon: "Oskin1", playerName: playerTwo)
+                PlayerView(playerIcon: twoPlayersViewModel.playerTwoIcon, playerName: playerTwo)
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 0, trailing: 30))
             
             // Players Turn and icon
             HStack(spacing: 10) {
                 if twoPlayersViewModel.currentTurn == .playerTwo {
-                    Image("Oskin1")
+                    Image(twoPlayersViewModel.playerTwoIcon)
                 }
                 
                 Text(twoPlayersViewModel.isPlayerOneTurn ? "\(playerOne)r turn" : "\(playerTwo) turn")

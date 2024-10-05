@@ -18,12 +18,15 @@ final class TwoPlayersViewModel: ObservableObject {
     @Published var gameResultText: String = ""
     @Published var resultIcon: String = ""
     
+    @Published var playerOneIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[0] ?? "Xskin1"
+    @Published var playerTwoIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[1] ?? "Oskin1"
+    
     // Timer
     @Published var gameDuration: Int = 0
     @Published var remainingTime: Int = 30
     private var timer: Timer?
     
-    @Published var isTimerVisible: Bool = true
+    @Published var isTimerVisible: Bool = SettingGameViewModel().gameToggle
     @Published var selectedTimerDuration: Int = 60 // time 30 60 120 sec
     
     private var totalTimeInSeconds: Int {
@@ -37,10 +40,12 @@ final class TwoPlayersViewModel: ObservableObject {
     }
     
     func processPlayerMove(for position: Int) {
-        guard !isSquareOccupied(in: moves, forIndex: position) else { return } // Use guard to prevent further execution if occupied
+        // Use guard to prevent further execution if occupied
+        guard !isSquareOccupied(in: moves, forIndex: position) else { return }
+        
         // Proceed with the move
         if isPlayerOneTurn {
-            moves[position] = TwoPlayersModel.Move(player: .playerOne, boardIndex: position)
+            moves[position] = TwoPlayersModel.Move(player: .playerOne, boardIndex: position, playerOne: playerOneIcon, playerTwo: playerTwoIcon)
             if checkWinCondition(for: .playerOne, in: moves) {
                 gameResultText = "Player One wins!"
                 resultIcon = "Win-Icon"
@@ -49,7 +54,7 @@ final class TwoPlayersViewModel: ObservableObject {
                 return
             }
         } else {
-            moves[position] = TwoPlayersModel.Move(player: .playerTwo, boardIndex: position)
+            moves[position] = TwoPlayersModel.Move(player: .playerTwo, boardIndex: position, playerOne: playerOneIcon, playerTwo: playerTwoIcon)
             if checkWinCondition(for: .playerTwo, in: moves) {
                 gameResultText = "Player Two wins!"
                 resultIcon = "Win-Icon"
