@@ -52,7 +52,7 @@ struct OnboardingView: View {
                     }
                     
                     ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(destination: SettingGameView()) {
+                        NavigationLink(destination: SettingGameView(model: SettingGameViewModel())) {
                             Image("Setting-Icon")
                         }
                     }
