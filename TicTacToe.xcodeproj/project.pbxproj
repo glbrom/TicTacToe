@@ -30,6 +30,8 @@
 		EB28D1152CAE8E75001A1F0F /* TwoPlayersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28D1142CAE8E75001A1F0F /* TwoPlayersViewModel.swift */; };
 		EB28D1172CAEC052001A1F0F /* GameViewComputerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28D1162CAEC052001A1F0F /* GameViewComputerTest.swift */; };
 		EB28D1192CAEE3CB001A1F0F /* GameViewTwoPlayersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28D1182CAEE3CB001A1F0F /* GameViewTwoPlayersTest.swift */; };
+		EB4ABA482CB171390003028C /* DifficultyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4ABA472CB171390003028C /* DifficultyLevel.swift */; };
+		EB4ABA4A2CB171600003028C /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4ABA492CB171600003028C /* GameMode.swift */; };
 		EBB123C82CAAF20E0024EE91 /* TicTacToeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB123C72CAAF20E0024EE91 /* TicTacToeApp.swift */; };
 		EBB123CC2CAAF2100024EE91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB123CB2CAAF2100024EE91 /* Assets.xcassets */; };
 		EBB123CF2CAAF2100024EE91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB123CE2CAAF2100024EE91 /* Preview Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		EB28D1142CAE8E75001A1F0F /* TwoPlayersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPlayersViewModel.swift; sourceTree = "<group>"; };
 		EB28D1162CAEC052001A1F0F /* GameViewComputerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewComputerTest.swift; sourceTree = "<group>"; };
 		EB28D1182CAEE3CB001A1F0F /* GameViewTwoPlayersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewTwoPlayersTest.swift; sourceTree = "<group>"; };
+		EB4ABA472CB171390003028C /* DifficultyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyLevel.swift; sourceTree = "<group>"; };
+		EB4ABA492CB171600003028C /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		EBB123C42CAAF20E0024EE91 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB123C72CAAF20E0024EE91 /* TicTacToeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeApp.swift; sourceTree = "<group>"; };
 		EBB123CB2CAAF2100024EE91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				EB28D10C2CAE8B9D001A1F0F /* SinglePlayModel.swift */,
 				EB28D10E2CAE8C2C001A1F0F /* TwoPlayersModel.swift */,
 				EB28D1102CAE8E0D001A1F0F /* GameLogicModel.swift */,
+				EB4ABA472CB171390003028C /* DifficultyLevel.swift */,
+				EB4ABA492CB171600003028C /* GameMode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB18AB3A2CAAF5F1001979EB /* ButtonView.swift in Sources */,
+				EB4ABA482CB171390003028C /* DifficultyLevel.swift in Sources */,
 				EB28D10F2CAE8C2C001A1F0F /* TwoPlayersModel.swift in Sources */,
 				EB28D1172CAEC052001A1F0F /* GameViewComputerTest.swift in Sources */,
 				EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */,
@@ -348,6 +355,7 @@
 				EB28D1132CAE8E46001A1F0F /* SinglePlayViewModel.swift in Sources */,
 				EB28D10D2CAE8B9D001A1F0F /* SinglePlayModel.swift in Sources */,
 				EB18AB402CAAF5F1001979EB /* GameBoardView.swift in Sources */,
+				EB4ABA4A2CB171600003028C /* GameMode.swift in Sources */,
 				EB18AB392CAAF5F1001979EB /* GreyButtonView.swift in Sources */,
 				EB18AB352CAAF5F1001979EB /* SettingGameView.swift in Sources */,
 				EB18AB422CAAF5F1001979EB /* RulesView.swift in Sources */,

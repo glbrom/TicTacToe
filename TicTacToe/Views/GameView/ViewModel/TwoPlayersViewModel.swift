@@ -20,14 +20,14 @@ final class TwoPlayersViewModel: ObservableObject {
     
     // Timer
     @Published var gameDuration: Int = 0
-    @Published var remainingTime: Int = 1800
+    @Published var remainingTime: Int = 30
     private var timer: Timer?
     
     @Published var isTimerVisible: Bool = true
-    @Published var selectedTimerDuration: Int = 30
+    @Published var selectedTimerDuration: Int = 60 // time 30 60 120 sec
     
     private var totalTimeInSeconds: Int {
-        selectedTimerDuration * 60
+        selectedTimerDuration
     }
     
     var formattedTime: String {

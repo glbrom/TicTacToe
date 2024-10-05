@@ -11,22 +11,24 @@ final class SinglePlayViewModel: ObservableObject {
     let columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     let levels: [String] = ["Easy", "Standart", "Hard"]
     
+    @Published var selectedLevel: DifficultyLevel = .easy
+    
     @Published var moves: [SinglePlayModel.Move?] = Array(repeating: nil, count: 9)
     @Published var isGameboardDisabled = false
     @Published var currentTurn: SinglePlayModel.Player = .human
-    @Published var selectedLevelIndex = 0
+    //    @Published var selectedLevelIndex = 0
     @Published var isGameStarted = false
     
     // Timer
     @Published var gameDuration: Int = 0
-    @Published var remainingTime: Int = 1800
+    @Published var remainingTime: Int = 30
     private var timer: Timer?
     
     @Published var isTimerVisible: Bool = true
-    @Published var selectedTimerDuration: Int = 30
+    @Published var selectedTimerDuration: Int = 60 // time 30 60 120 sec
     
     private var totalTimeInSeconds: Int {
-        selectedTimerDuration * 60
+        selectedTimerDuration
     }
     
     // ResultView icon and text
@@ -40,12 +42,20 @@ final class SinglePlayViewModel: ObservableObject {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
+    init(selectedLevel: DifficultyLevel = .easy) {
+        self.selectedLevel = selectedLevel
+    }
+    
     func processPlayerMove(for position: Int) {
         guard !isSquareOccupied(in: moves, forIndex: position) else { return }
         
         // Processing human player move
         moves[position] = SinglePlayModel.Move(player: .human, boardIndex: position)
-        checkForGameResult(for: .human)
+        //        checkForGameResult(for: .human)
+        
+        if checkForGameResult(for: .human) {
+            return
+        }
         
         // Computer move
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) { [weak self] in
@@ -56,14 +66,16 @@ final class SinglePlayViewModel: ObservableObject {
                 
                 let computerPosition = self.determineComputerMovePosistion(in: self.moves)
                 self.moves[computerPosition] = SinglePlayModel.Move(player: .computer, boardIndex: computerPosition)
-                self.checkForGameResult(for: .computer)
-                
+                //                self.checkForGameResult(for: .computer)
+                if self.checkForGameResult(for: .computer) {
+                    return // Exit if the game is over
+                }
                 self.isGameboardDisabled = false
             }
         }
     }
     
-    func checkForGameResult(for player: SinglePlayModel.Player) {
+    func checkForGameResult(for player: SinglePlayModel.Player) -> Bool {
         if checkWinCondition(for: player, in: moves) {
             // "Human wins"
             if player == .human {
@@ -78,6 +90,7 @@ final class SinglePlayViewModel: ObservableObject {
             stopTimer()
             saveBestTime()
             isGameOver = true
+            return true
             
         } else if checkForDrawCondition(in: moves) {
             // "It's a Draw!"
@@ -86,8 +99,11 @@ final class SinglePlayViewModel: ObservableObject {
             stopTimer()
             saveBestTime()
             isGameOver = true
+            return true
         }
-        currentTurn = player == .human ? .computer : .human
+        //        currentTurn = player == .human ? .computer : .human
+        
+        return false
     }
     
     
@@ -100,14 +116,14 @@ final class SinglePlayViewModel: ObservableObject {
         let logicModel = GameLogicModel(currentMove: moves)
         let winPatterns: Set<Set<Int>> = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
         
-        var movePosition: Int = 0
+        //        var movePosition: Int = 0
         
         func easyMode() -> Int {
             // Pick a random square
             logicModel.pickRandomSquare()
         }
         
-        func standartMode() -> Int {
+        func hardMode() -> Int {
             // Try block possible player win
             let blockPossibleWin = logicModel.blockWin(patterns: winPatterns)
             if (blockPossibleWin != -1) { return blockPossibleWin }
@@ -120,54 +136,63 @@ final class SinglePlayViewModel: ObservableObject {
             return easyMode()
         }
         
-        func hardMode() -> Int {
+        func standartMode() -> Int {
             // If AI can win, then win the game
             let winGame = logicModel.winGame(patterns: winPatterns)
             if (winGame != -1) { return winGame }
             
             // If AI can't win the game, then block a possible win
+            return hardMode()
+        }
+        
+        //                func hardMode() -> Int {
+        //                    // If AI can win, then win the game
+        //                    let winGame = logicModel.winGame(patterns: winPatterns)
+        //                    if (winGame != -1) { return winGame }
+        //        
+        //                    // If AI can't win the game, then block a possible win
+        //                    let blockPossibleWin = logicModel.blockWin(patterns: winPatterns)
+        //                    if (blockPossibleWin != -1) { return blockPossibleWin }
+        //        
+        //                    // If there's no win to be blocked, then pick the middle square
+        //                    let middleSquare = logicModel.pickMiddleSquare()
+        //                    if (middleSquare != -1) { return middleSquare }
+        //        
+        //                    // If AI can't pick middle square because is yours, then pick a square above the middle
+        //                    let secondSquare = logicModel.pickMiddleSquare()
+        //                    if (secondSquare != -1) { return secondSquare }
+        //        
+        //                    // If AI can't pick middle square because is not yours, then pick a corner square
+        //                    let cornerSquare = logicModel.pickCornerSquare()
+        //                    if (cornerSquare != -1) { return cornerSquare }
+        //        
+        //                    // If AI can't pick corner square, then pick a random square
+        //                    return easyMode()
+        //                }
+        switch selectedLevel {
+        case .easy:
+            return easyMode()
+        case .standard:
             return standartMode()
+        case .hard:
+            return hardMode()
+            
         }
         
-        //        func impossibleMode() -> Int {
-        //            // If AI can win, then win the game
-        //            let winGame = logicModel.winGame(patterns: winPatterns)
-        //            if (winGame != -1) { return winGame }
-        //
-        //            // If AI can't win the game, then block a possible win
-        //            let blockPossibleWin = logicModel.blockWin(patterns: winPatterns)
-        //            if (blockPossibleWin != -1) { return blockPossibleWin }
-        //
-        //            // If there's no win to be blocked, then pick the middle square
-        //            let middleSquare = logicModel.pickMiddleSquare()
-        //            if (middleSquare != -1) { return middleSquare }
-        //
-        //            // If AI can't pick middle square because is yours, then pick a square above the middle
-        //            let secondSquare = logicModel.pickMiddleSquare()
-        //            if (secondSquare != -1) { return secondSquare }
-        //
-        //            // If AI can't pick middle square because is not yours, then pick a corner square
-        //            let cornerSquare = logicModel.pickCornerSquare()
-        //            if (cornerSquare != -1) { return cornerSquare }
-        //
-        //            // If AI can't pick corner square, then pick a random square
-        //            return easyMode()
+        //        switch(selectedLevelIndex) {
+        //        case 0:
+        //            movePosition = easyMode()
+        //        case 1:
+        //            movePosition = standartMode()
+        //        case 2:
+        //            movePosition = hardMode()
+        //            //        case 3:
+        //            //            movePosition = impossibleMode()
+        //        default:
+        //            print("Something is wrong")
         //        }
-        
-        switch(selectedLevelIndex) {
-        case 0:
-            movePosition = easyMode()
-        case 1:
-            movePosition = standartMode()
-        case 2:
-            movePosition = hardMode()
-            //        case 3:
-            //            movePosition = impossibleMode()
-        default:
-            print("Something is wrong")
-        }
-        
-        return movePosition
+        //        
+        //        return movePosition
     }
     
     func checkWinCondition(for player: SinglePlayModel.Player, in moves: [SinglePlayModel.Move?]) -> Bool {

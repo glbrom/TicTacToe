@@ -10,6 +10,7 @@ import SwiftUI
 struct ResultView: View {
     var text = "Player One win!"
     var icon = "Win-Icon"
+    var gameMode: GameMode
     
     var body: some View {
         NavigationView {
@@ -28,9 +29,16 @@ struct ResultView: View {
                 Spacer()
                 
                 VStack(spacing: 12) {
-                    NavigationLink(destination: GameView()) {
-                        Text("Play Again").customText(isFilled: true)
+                    if gameMode == .computer {
+                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
+                            Text("Play Again").customText(isFilled: true)
+                        }
+                    } else if gameMode == .multiplayer {
+                        NavigationLink(destination: GameViewTwoPlayersTest()) {
+                            Text("Play Again").customText(isFilled: true)
+                        }
                     }
+                    
                     NavigationLink(destination: SelectGameView()) {
                         Text("Back").customText(isFilled: false)
                     }
@@ -42,5 +50,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(text: "Player One win!", icon: "Win-Icon")
+    ResultView(text: "Player One win!", icon: "Win-Icon", gameMode: .computer)
 }
