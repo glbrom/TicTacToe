@@ -20,11 +20,12 @@ import SwiftUI
 //}
 
 struct SelectGame2View: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationView {
             ZStack {
-                
-                
                 Color.appBackground
                     .ignoresSafeArea()
                 
@@ -69,6 +70,23 @@ struct SelectGame2View: View {
                 .frame(height: 336)
                 .padding(.horizontal, 52)
             }
+            .toolbar() {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: SettingGameView(model: SettingGameViewModel())) {
+                        Image("Setting-Icon")
+                    }
+                }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image("Back-Icon")
+                    }
+                }
+                
+            }
+            
             .navigationBarBackButtonHidden(true)
         } 
     }
