@@ -42,5 +42,8 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(text: "Player One win!", icon: "Win-Icon")
+    ResultView(
+        text: "Player One win!",
+        icon: "Win-Icon"
+    )
 }

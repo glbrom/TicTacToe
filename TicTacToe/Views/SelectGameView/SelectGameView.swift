@@ -39,7 +39,7 @@ struct SelectGameView: View {
                             SelectGame2View()
                         }
                         
-                        NavigationLink(destination: GameView()) {
+                        NavigationLink(destination: GameViewTwoPlayersTest()) {
                             HStack(alignment: .center) {
                                 Image("Two-Players-Icon")
                                 Text("Two Players")
@@ -47,7 +47,7 @@ struct SelectGameView: View {
                             .customGrey()
                         }
                         
-                        NavigationLink(destination: GameView()) {
+                        NavigationLink(destination: LeaderboardView()) {
                             HStack(alignment: .center) {
                                 Image("Two-Players-Icon-2")
                                 Text("Leaderboard")
@@ -62,7 +62,7 @@ struct SelectGameView: View {
             }
             .toolbar() {
                 ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: SettingGameView()) {
+                    NavigationLink(destination: SettingGameView(model: SettingGameViewModel())) {
                         Image("Setting-Icon")
                     }
                 }
