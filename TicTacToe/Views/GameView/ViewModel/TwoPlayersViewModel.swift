@@ -37,6 +37,7 @@ final class TwoPlayersViewModel: ObservableObject {
                 resultIcon = "Win-Icon"
                 isGameOver = true
                 timerViewModel.stopTimer()
+                timerViewModel.saveGameTime()
                 return
             }
         } else {
@@ -46,6 +47,7 @@ final class TwoPlayersViewModel: ObservableObject {
                 resultIcon = "Win-Icon"
                 isGameOver = true
                 timerViewModel.stopTimer()
+                timerViewModel.saveGameTime()
                 return
             }
         }

@@ -118,7 +118,7 @@ struct GameViewComputerTest: View {
             ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon, gameMode: .computer)
         }
         .fullScreenCover(isPresented: $showSelectGameView) {
-            SelectGameView()
+            SelectGame2View()
         }
         
         .navigationBarBackButtonHidden(true)
@@ -128,5 +128,5 @@ struct GameViewComputerTest: View {
 
 
 #Preview {
-    GameViewComputerTest(selectedDifficulty: .standard)
+    GameViewComputerTest(selectedDifficulty: .easy)
 }

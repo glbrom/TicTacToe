@@ -11,7 +11,7 @@ struct GameViewTwoPlayersTest: View {
     
     @StateObject private var twoPlayersViewModel = TwoPlayersViewModel()
     @StateObject private var timerViewModel = TimerViewModel()
-
+    
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
     @State private var shoowSelectGameView: Bool = false

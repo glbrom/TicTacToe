@@ -77,6 +77,7 @@ final class SinglePlayViewModel: ObservableObject {
                 resultIcon = "Lose-Icon"
             }
             timerViewModel.stopTimer()
+            timerViewModel.saveGameTime()
             //            saveBestTime()
             isGameOver = true
             return true
