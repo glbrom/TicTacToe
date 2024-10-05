@@ -10,8 +10,7 @@
 import SwiftUI
 
 struct LeaderboardTimeResult: View {
-//    private var gameTimes = DataManager.shared.getTimes()
-    var gameTimes: [String] = ["00:48", "00:20", "00:40", "00:42"] // Нужно настроить словарь который будет фиксировать время за которое игра пройдена. И нужно настроить сортировку от меньшего к большему.
+    var gameTimes: [String]
     
     var sortedGameTimes: [String] {
         gameTimes.sorted()
@@ -38,5 +37,5 @@ struct LeaderboardTimeResult: View {
 }
 
 #Preview {
-    LeaderboardTimeResult()
+    LeaderboardTimeResult(gameTimes: ["00:48", "00:20", "00:40", "00:42"])
 }
