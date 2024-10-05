@@ -14,13 +14,18 @@ struct GameViewComputerTest: View {
     @State private var isShowGameTime: Bool = true
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
+    @State private var showSelectGameView: Bool = false
+    
+    init(selectedDifficulty: DifficultyLevel) {
+        _singlePlayerViewModel = StateObject(wrappedValue: SinglePlayViewModel(selectedLevel: selectedDifficulty))
+    }
     
     var body: some View {
         VStack {
             // Back button view
             HStack {
                 Button(action: {
-                    
+                    showSelectGameView = true
                 }) {
                     Image("Back-Icon")
                         .padding(.horizontal, 20)
@@ -110,13 +115,18 @@ struct GameViewComputerTest: View {
             singlePlayerViewModel.startTimer()
         }
         .fullScreenCover(isPresented: $singlePlayerViewModel.isGameOver) {
-            ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon)
+            ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon, gameMode: .computer)
         }
+        .fullScreenCover(isPresented: $showSelectGameView) {
+            SelectGameView()
+        }
+        
+        .navigationBarBackButtonHidden(true)
     }
     
 }
 
 
 #Preview {
-    GameViewComputerTest()
+    GameViewComputerTest(selectedDifficulty: .standard)
 }

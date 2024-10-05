@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct GameViewTwoPlayersTest: View {
-    @Environment(\.presentationMode) var presentationMode
     
     @StateObject private var twoPlayersViewModel = TwoPlayersViewModel()
     
     @State private var showSelectGameView: Bool = false
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
+    @State private var shoowSelectGameView: Bool = false
     
     var body: some View {
+        //        NavigationView {
         VStack {
             // Back button view
             HStack {
+                //                    NavigationLink(destination: SelectGameView()) {
+                //                                          Image("Back-Icon")
+                //                                              .padding(.horizontal, 20)
+                //                                      }
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
+                    shoowSelectGameView = true
                 }) {
                     Image("Back-Icon")
                         .padding(.horizontal, 20)
@@ -108,8 +113,13 @@ struct GameViewTwoPlayersTest: View {
             twoPlayersViewModel.startTimer()
         }
         .fullScreenCover(isPresented: $twoPlayersViewModel.isGameOver) {
-            ResultView(text: twoPlayersViewModel.gameResultText, icon: twoPlayersViewModel.resultIcon)
+            ResultView(text: twoPlayersViewModel.gameResultText, icon: twoPlayersViewModel.resultIcon, gameMode: .multiplayer)
         }
+        .fullScreenCover(isPresented: $shoowSelectGameView) {
+            SelectGameView()
+        }
+        .navigationBarBackButtonHidden(true)
+        //        }
     }
     
 }
