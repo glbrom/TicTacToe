@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,9 @@
 		64DF63232CB18526001D7E12 /* Classical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64DF631D2CB18526001D7E12 /* Classical.mp3 */; };
 		64DF63242CB18526001D7E12 /* Instrumentals.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64DF631E2CB18526001D7E12 /* Instrumentals.mp3 */; };
 		64DF63252CB18526001D7E12 /* Nature.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64DF631F2CB18526001D7E12 /* Nature.mp3 */; };
+		64DF636C2CB19238001D7E12 /* LeaderboardNoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63672CB19238001D7E12 /* LeaderboardNoGame.swift */; };
+		64DF636D2CB19238001D7E12 /* LeaderboardTimeResault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63682CB19238001D7E12 /* LeaderboardTimeResault.swift */; };
+		64DF636E2CB19238001D7E12 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF636A2CB19238001D7E12 /* LeaderboardView.swift */; };
 		64F9D5112CADA7D600F8B02C /* CustomTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */; };
 		DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */; };
 		DC8D9C722CAFAFA1004990FA /* SelectGame2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */; };
@@ -58,6 +61,9 @@
 		64DF631D2CB18526001D7E12 /* Classical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Classical.mp3; sourceTree = "<group>"; };
 		64DF631E2CB18526001D7E12 /* Instrumentals.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Instrumentals.mp3; sourceTree = "<group>"; };
 		64DF631F2CB18526001D7E12 /* Nature.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Nature.mp3; sourceTree = "<group>"; };
+		64DF63672CB19238001D7E12 /* LeaderboardNoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardNoGame.swift; sourceTree = "<group>"; };
+		64DF63682CB19238001D7E12 /* LeaderboardTimeResault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTimeResault.swift; sourceTree = "<group>"; };
+		64DF636A2CB19238001D7E12 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextModifier.swift; sourceTree = "<group>"; };
 		DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGreyModifier.swift; sourceTree = "<group>"; };
 		DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGame2View.swift; sourceTree = "<group>"; };
@@ -89,10 +95,6 @@
 		EBB123CE2CAAF2100024EE91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		41FA410C2CAD942200B0F3D4 /* Leaderboard */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Leaderboard; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		EBB123C12CAAF20E0024EE91 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -121,6 +123,24 @@
 				64DF631F2CB18526001D7E12 /* Nature.mp3 */,
 			);
 			path = "Music File";
+			sourceTree = "<group>";
+		};
+		64DF63692CB19238001D7E12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64DF63672CB19238001D7E12 /* LeaderboardNoGame.swift */,
+				64DF63682CB19238001D7E12 /* LeaderboardTimeResault.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		64DF636B2CB19238001D7E12 /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				64DF63692CB19238001D7E12 /* View */,
+				64DF636A2CB19238001D7E12 /* LeaderboardView.swift */,
+			);
+			path = Leaderboard;
 			sourceTree = "<group>";
 		};
 		64F9D50F2CADA79A00F8B02C /* Modifiers */ = {
@@ -152,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				EB18AB312CAAF5F1001979EB /* RulesView */,
-				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
+				64DF636B2CB19238001D7E12 /* Leaderboard */,
 				EB18AB1A2CAAF5F1001979EB /* SettingGameView */,
 				EB18AB1E2CAAF5F1001979EB /* SelectGameView */,
 				DC8D9C702CAFAF40004990FA /* SelectGame2View */,
@@ -341,9 +361,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				41FA410C2CAD942200B0F3D4 /* Leaderboard */,
-			);
 			name = TicTacToe;
 			productName = TicTacToe;
 			productReference = EBB123C42CAAF20E0024EE91 /* TicTacToe.app */;
@@ -417,6 +434,9 @@
 				EB18AB3C2CAAF5F1001979EB /* ResultView.swift in Sources */,
 				EB18AB3B2CAAF5F1001979EB /* OnboardingView.swift in Sources */,
 				64F9D5112CADA7D600F8B02C /* CustomTextModifier.swift in Sources */,
+				64DF636C2CB19238001D7E12 /* LeaderboardNoGame.swift in Sources */,
+				64DF636D2CB19238001D7E12 /* LeaderboardTimeResault.swift in Sources */,
+				64DF636E2CB19238001D7E12 /* LeaderboardView.swift in Sources */,
 				EB18AB3F2CAAF5F1001979EB /* GameView.swift in Sources */,
 				EB18AB182CAAF5E8001979EB /* DataManager.swift in Sources */,
 				EBB123C82CAAF20E0024EE91 /* TicTacToeApp.swift in Sources */,

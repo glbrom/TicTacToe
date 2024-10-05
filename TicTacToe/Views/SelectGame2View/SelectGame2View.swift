@@ -22,7 +22,7 @@ struct SelectGame2View: View {
                     Text("Select Game")
                         .font(.system(size: 24, weight: .medium))
                     
-                    NavigationLink(destination: GameViewComputerTest()) {
+                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
                         HStack(alignment: .center) {
                             Image("Easy-Icon")
                             Text("Easy")
@@ -30,7 +30,7 @@ struct SelectGame2View: View {
                         .customGrey()
                     }
                     
-                    NavigationLink(destination: GameViewComputerTest()) {
+                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .standard)) {
                         HStack(alignment: .center) {
                             Image("Medium-Icon")
                             Text("Medium")
@@ -38,7 +38,7 @@ struct SelectGame2View: View {
                         .customGrey()
                     }
                     
-                    NavigationLink(destination: GameViewComputerTest()) {
+                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .hard)) {
                         HStack(alignment: .center) {
                             Image("Hard-Icon")
                             Text("Hard")
