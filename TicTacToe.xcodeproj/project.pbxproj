@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		648FF0912CB26FC8006D62AA /* SelectLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648FF0902CB26FC8006D62AA /* SelectLevelViewModel.swift */; };
 		64DF63122CB18503001D7E12 /* SettingGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63112CB18503001D7E12 /* SettingGameViewModel.swift */; };
 		64DF63132CB18503001D7E12 /* SettingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63102CB18503001D7E12 /* SettingGameView.swift */; };
 		64DF63172CB18514001D7E12 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DF63142CB18514001D7E12 /* PickerView.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		648FF0902CB26FC8006D62AA /* SelectLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModel.swift; sourceTree = "<group>"; };
 		64DF63102CB18503001D7E12 /* SettingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGameView.swift; sourceTree = "<group>"; };
 		64DF63112CB18503001D7E12 /* SettingGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingGameViewModel.swift; sourceTree = "<group>"; };
 		64DF63142CB18514001D7E12 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		648FF08F2CB26F8E006D62AA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				648FF0902CB26FC8006D62AA /* SelectLevelViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		64DF631C2CB18526001D7E12 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +163,7 @@
 		DC8D9C702CAFAF40004990FA /* SelectGame2View */ = {
 			isa = PBXGroup;
 			children = (
+				648FF08F2CB26F8E006D62AA /* ViewModels */,
 				DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */,
 			);
 			path = SelectGame2View;
@@ -425,6 +436,7 @@
 				EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */,
 				DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */,
 				64DF63212CB18526001D7E12 /* Extension+View.swift in Sources */,
+				648FF0912CB26FC8006D62AA /* SelectLevelViewModel.swift in Sources */,
 				64DF63222CB18526001D7E12 /* Music.swift in Sources */,
 				EB18AB412CAAF5F1001979EB /* PlayerView.swift in Sources */,
 				EB28D1112CAE8E0D001A1F0F /* GameLogicModel.swift in Sources */,
