@@ -8,12 +8,13 @@ import SwiftUI
 
 struct LeaderboardView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var startGameTime = true //Переключатель прохождения игры
+    private var gameTimes = DataManager.shared.getTimes()
+    var ggg = DataManager.shared
     
     var body: some View {
         VStack {
-            if startGameTime {
-                LeaderboardTimeResult()
+            if !gameTimes.isEmpty {
+                LeaderboardTimeResult(gameTimes: gameTimes)
                     .padding(.top, 50)
             } else {
                 LeaderboardNoGame()
