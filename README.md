@@ -1,6 +1,6 @@
 # Tic Tac Toe Project
 
-### 👨‍💻 Команда:
+## Team:
 <p align="left"> 
 <a href="https://github.com/vsvami">
 <img src="https://img.shields.io/badge/Team Leader: vsvami-FF4191"/></a>
