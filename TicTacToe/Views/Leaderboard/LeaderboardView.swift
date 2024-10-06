@@ -9,7 +9,6 @@ import SwiftUI
 struct LeaderboardView: View {
     @Environment(\.presentationMode) var presentationMode
     private var gameTimes = DataManager.shared.getTimes()
-    var ggg = DataManager.shared
     
     var body: some View {
         VStack {
