@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct LeaderboardTimeResult: View {
-    var gameTimes: [String]
+    private var gameTimes = DataManager.shared.getTimes()
     
     var sortedGameTimes: [String] {
         gameTimes.sorted()
@@ -37,5 +37,5 @@ struct LeaderboardTimeResult: View {
 }
 
 #Preview {
-    LeaderboardTimeResult(gameTimes: ["00:48", "00:20", "00:40", "00:42"])
+    LeaderboardTimeResult()
 }

@@ -10,8 +10,8 @@ import SwiftUI
 struct GameViewComputerTest: View {
     
     @StateObject private var singlePlayerViewModel = SinglePlayViewModel()
+    @StateObject private var timerViewModel = TimerViewModel()
     
-    @State private var isShowGameTime: Bool = true
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
     @State private var showSelectGameView: Bool = false
@@ -35,23 +35,23 @@ struct GameViewComputerTest: View {
             
             // PlayerView and Timer on/off
             HStack(alignment: .center) {
-                PlayerView(playerIcon: "Xskin1", playerName: playerOne)
+                PlayerView(playerIcon: singlePlayerViewModel.humanIcon, playerName: playerOne)
                 Spacer()
                 
-                if singlePlayerViewModel.isTimerVisible {
-                    Text(singlePlayerViewModel.formattedTime)
+                if timerViewModel.isTimerVisible {
+                    Text(timerViewModel.formattedTime)
                         .font(.system(size: 20, weight: .bold))
                 }
                 
                 Spacer()
-                PlayerView(playerIcon: "Oskin1", playerName: playerTwo)
+                PlayerView(playerIcon: singlePlayerViewModel.computerIcon, playerName: playerTwo)
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 0, trailing: 30))
             
             // Players Turn and icon
             HStack(spacing: 10) {
                 if singlePlayerViewModel.currentTurn == .computer {
-                    Image("Oskin1")
+                    Image(singlePlayerViewModel.computerIcon)
                 }
                 
                 Text(singlePlayerViewModel.currentTurn == .human ? "\(playerOne)r turn" : "\(playerTwo) turn")
@@ -112,13 +112,13 @@ struct GameViewComputerTest: View {
         }
         .background(.appBackground)
         .onAppear {
-            singlePlayerViewModel.startTimer()
+            timerViewModel.startTimer()
         }
         .fullScreenCover(isPresented: $singlePlayerViewModel.isGameOver) {
             ResultView(text: singlePlayerViewModel.gameResultText, icon: singlePlayerViewModel.resultIcon, gameMode: .computer)
         }
         .fullScreenCover(isPresented: $showSelectGameView) {
-            SelectGameView()
+            SelectGame2View()
         }
         
         .navigationBarBackButtonHidden(true)

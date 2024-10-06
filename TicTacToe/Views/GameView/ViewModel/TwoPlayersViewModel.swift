@@ -14,47 +14,41 @@ final class TwoPlayersViewModel: ObservableObject {
     @Published var moves: [TwoPlayersModel.Move?] = Array(repeating: nil, count: 9)
     @Published var currentTurn: TwoPlayersModel.Player = .playerOne
     
+    // ResultView icon and text
     @Published var isGameOver: Bool = false
     @Published var gameResultText: String = ""
     @Published var resultIcon: String = ""
     
+    // Add icon with SettingGame
+    @Published var playerOneIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[0] ?? "Xskin1"
+    @Published var playerTwoIcon = SettingGameViewModel().items.first { $0.isPicked }?.imageNames[1] ?? "Oskin1"
+    
     // Timer
-    @Published var gameDuration: Int = 0
-    @Published var remainingTime: Int = 30
-    private var timer: Timer?
-    
-    @Published var isTimerVisible: Bool = true
-    @Published var selectedTimerDuration: Int = 60 // time 30 60 120 sec
-    
-    private var totalTimeInSeconds: Int {
-        selectedTimerDuration
-    }
-    
-    var formattedTime: String {
-        let minutes = remainingTime / 60
-        let seconds = remainingTime % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
+    @Published var timerViewModel = TimerViewModel()
     
     func processPlayerMove(for position: Int) {
-        guard !isSquareOccupied(in: moves, forIndex: position) else { return } // Use guard to prevent further execution if occupied
+        // Use guard to prevent further execution if occupied
+        guard !isSquareOccupied(in: moves, forIndex: position) else { return }
+        
         // Proceed with the move
         if isPlayerOneTurn {
-            moves[position] = TwoPlayersModel.Move(player: .playerOne, boardIndex: position)
+            moves[position] = TwoPlayersModel.Move(player: .playerOne, boardIndex: position, playerOne: playerOneIcon, playerTwo: playerTwoIcon)
             if checkWinCondition(for: .playerOne, in: moves) {
                 gameResultText = "Player One wins!"
                 resultIcon = "Win-Icon"
                 isGameOver = true
-                stopTimer()
+                timerViewModel.stopTimer()
+                timerViewModel.saveGameTime()
                 return
             }
         } else {
-            moves[position] = TwoPlayersModel.Move(player: .playerTwo, boardIndex: position)
+            moves[position] = TwoPlayersModel.Move(player: .playerTwo, boardIndex: position, playerOne: playerOneIcon, playerTwo: playerTwoIcon)
             if checkWinCondition(for: .playerTwo, in: moves) {
                 gameResultText = "Player Two wins!"
                 resultIcon = "Win-Icon"
                 isGameOver = true
-                stopTimer()
+                timerViewModel.stopTimer()
+                timerViewModel.saveGameTime()
                 return
             }
         }
@@ -64,7 +58,7 @@ final class TwoPlayersViewModel: ObservableObject {
             gameResultText = "Draw!"
             resultIcon = "Draw-Icon"
             isGameOver = true
-            stopTimer()
+            timerViewModel.stopTimer()
             return
         }
         
@@ -101,42 +95,7 @@ final class TwoPlayersViewModel: ObservableObject {
         isGameOver = false
         gameResultText = ""
         resultIcon = ""
-        stopTimer()
+        timerViewModel.stopTimer()
     }
     
-    // Timer
-    func startTimer() {
-        remainingTime = totalTimeInSeconds
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            if self.remainingTime > 0 {
-                self.remainingTime -= 1
-            } else {
-                self.timer?.invalidate()
-                self.endGame()
-            }
-        }
-    }
-    
-    func endGame() {
-        print("Game Over. Remaining time: \(remainingTime) seconds")
-    }
-    
-    func saveBestTime() {
-        let bestTime = UserDefaults.standard.integer(forKey: "BestTime")
-        if gameDuration < bestTime || bestTime == 0 {
-            UserDefaults.standard.set(gameDuration, forKey: "BestTime")
-        }
-    }
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        gameDuration = 1800 - remainingTime
-    }
-    
-    deinit {
-        timer?.invalidate()
-    }
 }
