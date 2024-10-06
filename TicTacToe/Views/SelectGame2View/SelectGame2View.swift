@@ -7,28 +7,22 @@
 
 import SwiftUI
 
-//struct SelectGame2View: View {
-//    var body: some View {
-//        NavigationView {
-//            VStack {
-//                NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
-//                    Text("Go to Easy Game")
-//                }
-//            }
-//        }
-//    }
-//}
-
 struct SelectGame2View: View {
     
+    //MARK: - Private Properties
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var selectLevel = SelectLevelViewModel()
     
+    
+    //MARK: - Body
     var body: some View {
         NavigationView {
             ZStack {
+                //background
                 Color.appBackground
                     .ignoresSafeArea()
                 
+                //foreground
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(.white)
@@ -38,38 +32,36 @@ struct SelectGame2View: View {
                         Text("Select Game")
                             .font(.system(size: 24, weight: .medium))
                         
-                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
-                            HStack(alignment: .center) {
-                                Image("Easy-Icon")
-                                Text("Easy")
-                            }
-                            .customGrey()
-                            .onAppear {
-                                print("Easy button tapped")
-                            }
-                        }
+                        // Buttons
+                        selectLevel.difficultyButton(
+                            difficulty: "Easy",
+                            destination: GameViewComputerTest(
+                                selectedDifficulty: .easy
+                            )
+                        )
                         
-                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .standard)) {
-                            HStack(alignment: .center) {
-                                Image("Medium-Icon")
-                                Text("Medium")
-                            }
-                            .customGrey()
-                        }
-                        
-                        NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .hard)) {
-                            HStack(alignment: .center) {
-                                Image("Hard-Icon")
-                                Text("Hard")
-                            }
-                            .customGrey()
-                        }
+                        selectLevel.difficultyButton(
+                            difficulty: "Medium",
+                            destination: GameViewComputerTest(
+                                selectedDifficulty: .standard
+                            )
+                        )
+                       
+                        selectLevel.difficultyButton(
+                            difficulty: "Hard",
+                            destination: GameViewComputerTest(
+                                selectedDifficulty: .hard
+                            )
+                        )
                     }
                     .padding(.horizontal, 20)
                 }
                 .frame(height: 336)
                 .padding(.horizontal, 52)
-            }
+                
+                }
+            
+            // navigations
             .toolbar() {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(destination: SettingGameView(model: SettingGameViewModel())) {
