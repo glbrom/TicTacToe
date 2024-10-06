@@ -8,80 +8,59 @@
 import SwiftUI
 
 struct SelectGame2View: View {
-    
-    //MARK: - Private Properties
-    @Environment(\.dismiss) private var dismiss
-    @StateObject private var selectLevel = SelectLevelViewModel()
-    
-    
-    //MARK: - Body
     var body: some View {
-        NavigationView {
+        ZStack {
+            Color.appBackground
+                .ignoresSafeArea()
+            
             ZStack {
-                //background
-                Color.appBackground
-                    .ignoresSafeArea()
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(.white)
+                    .shadow(color: .appLightBlue, radius: 15)
                 
-                //foreground
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(.white)
-                        .shadow(color: .appLightBlue, radius: 15)
+                VStack(spacing: 20) {
+                    Text("Select Game")
+                        .font(.system(size: 24, weight: .medium))
                     
-                    VStack(spacing: 20) {
-                        Text("Select Game")
-                            .font(.system(size: 24, weight: .medium))
-                        
-                        // Buttons
-                        selectLevel.difficultyButton(
-                            difficulty: "Easy",
-                            destination: GameViewComputerTest(
-                                selectedDifficulty: .easy
-                            )
-                        )
-                        
-                        selectLevel.difficultyButton(
-                            difficulty: "Medium",
-                            destination: GameViewComputerTest(
-                                selectedDifficulty: .standard
-                            )
-                        )
-                       
-                        selectLevel.difficultyButton(
-                            difficulty: "Hard",
-                            destination: GameViewComputerTest(
-                                selectedDifficulty: .hard
-                            )
-                        )
+                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .easy)) {
+                        HStack(alignment: .center) {
+                            Image("Easy-Icon")
+                            Text("Easy")
+                        }
+                        .customGrey()
                     }
-                    .padding(.horizontal, 20)
-                }
-                .frame(height: 336)
-                .padding(.horizontal, 52)
-                
-                }
-            
-            // navigations
-            .toolbar() {
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: SettingGameView(model: SettingGameViewModel())) {
-                        Image("Setting-Icon")
+                    
+                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .standard)) {
+                        HStack(alignment: .center) {
+                            Image("Medium-Icon")
+                            Text("Medium")
+                        }
+                        .customGrey()
+                    }
+                    
+                    NavigationLink(destination: GameViewComputerTest(selectedDifficulty: .hard)) {
+                        HStack(alignment: .center) {
+                            Image("Hard-Icon")
+                            Text("Hard")
+                        }
+                        .customGrey()
                     }
                 }
-                
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Image("Back-Icon")
-                    }
-                }
-                
+                .padding(.horizontal, 20)
             }
-            
-            .navigationBarBackButtonHidden(true)
-        } 
+            .frame(height: 336)
+            .padding(.horizontal, 52)
+        }
+        .navigationBarBackButtonHidden(true)
     }
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 #Preview {
