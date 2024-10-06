@@ -1,11 +1,9 @@
 //
-//  LeaderboardTimeResault.swift
+//  LeaderboardTimeResult.swift
 //  TicTacToe
 //
 //  Created by Serge Eliseev on 03.10.2024.
 //
-
-
 
 import SwiftUI
 
@@ -19,12 +17,17 @@ struct LeaderboardTimeResult: View {
     var body: some View {
         ScrollView {
             ForEach(sortedGameTimes.indices, id: \.self) { index in
-                HStack() {
+                HStack {
                     Image(systemName: "\(index + 1).circle.fill")
                         .font(.system(size: 69, weight: .thin))
                         .foregroundStyle(.appBlack, index == 0 ? .appPurple : .appLightBlue)
                     
-                    Text("Best time \(sortedGameTimes[index])")
+                    // Формируем текст в зависимости от позиции
+                    let labelText: String = index == 0
+                        ? "Best time \(sortedGameTimes[index])"
+                        : "Time \(sortedGameTimes[index])"
+                    
+                    Text(labelText)
                         .padding(.leading, 25)
                         .frame(maxWidth: 269, maxHeight: 69, alignment: .leading)
                         .font(.title2.weight(.light))
