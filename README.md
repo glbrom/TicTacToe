@@ -1,3 +1,6 @@
+
+![TicTacToe](https://github.com/user-attachments/assets/48340cbc-3a82-43a6-a521-b8bf48d43600)
+
 # Tic Tac Toe Project
 
 ## Team:
@@ -14,8 +17,15 @@
 <img src="https://img.shields.io/badge/elaiten-FF6969"/></a>
 </p>
 
-Welcome to the Tic Tac Toe project! This is a simple implementation of the classic game, designed for both educational purposes and entertainment. Below is a detailed README.md file that outlines the project, its features, installation instructions, usage, and an overview of the code.
+## Stack:
+- Swift 5
+- SwiftUI
+- AppStorage
+- AVFoundation
+- MVVM
+- Min version iOS 15.0
 
+Welcome to the Tic Tac Toe project! This is a simple implementation of the classic game, designed for both educational purposes and entertainment. Below is a detailed README.md file that outlines the project, its features, installation instructions, usage, and an overview of the code.
 
 ## Introduction
 
@@ -45,14 +55,6 @@ Tic Tac Toe is a two-player game where players take turns marking a square on a 
   - Displays the rules of the game.
 - **Leaderboard:**
   - The Leaderboard feature tracks player performance in Tic Tac Toe, ranking players based on the fastest game completion times.
-
-## Stack:
-- Swift 5
-- SwiftUI
-- AppStorage
-- AVFoundation
-- MVVM
-- Min version iOS 15.0
 
 ## Installation
 
