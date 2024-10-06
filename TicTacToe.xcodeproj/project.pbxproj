@@ -23,7 +23,6 @@
 		64F9D5112CADA7D600F8B02C /* CustomTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */; };
 		DC2D65882CAE35D500AA0B2B /* CustomGreyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */; };
 		DC8D9C722CAFAFA1004990FA /* SelectGame2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */; };
-		DC9A91642CB2167A00FB4D1C /* SelectLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A91632CB2167A00FB4D1C /* SelectLevelViewModel.swift */; };
 		EB18AB182CAAF5E8001979EB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB172CAAF5E8001979EB /* DataManager.swift */; };
 		EB18AB362CAAF5F1001979EB /* XOPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */; };
 		EB18AB372CAAF5F1001979EB /* SelectGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */; };
@@ -67,7 +66,6 @@
 		64F9D5102CADA7D600F8B02C /* CustomTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextModifier.swift; sourceTree = "<group>"; };
 		DC2D65872CAE35BB00AA0B2B /* CustomGreyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGreyModifier.swift; sourceTree = "<group>"; };
 		DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGame2View.swift; sourceTree = "<group>"; };
-		DC9A91632CB2167A00FB4D1C /* SelectLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewModel.swift; sourceTree = "<group>"; };
 		EB18AB172CAAF5E8001979EB /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		EB18AB1D2CAAF5F1001979EB /* XOPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XOPickerView.swift; sourceTree = "<group>"; };
 		EB18AB1F2CAAF5F1001979EB /* SelectGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGameView.swift; sourceTree = "<group>"; };
@@ -155,18 +153,9 @@
 		DC8D9C702CAFAF40004990FA /* SelectGame2View */ = {
 			isa = PBXGroup;
 			children = (
-				DC9A91622CB2164800FB4D1C /* ViewsModel */,
 				DC8D9C712CAFAFA1004990FA /* SelectGame2View.swift */,
 			);
 			path = SelectGame2View;
-			sourceTree = "<group>";
-		};
-		DC9A91622CB2164800FB4D1C /* ViewsModel */ = {
-			isa = PBXGroup;
-			children = (
-				DC9A91632CB2167A00FB4D1C /* SelectLevelViewModel.swift */,
-			);
-			path = ViewsModel;
 			sourceTree = "<group>";
 		};
 		EB18AB162CAAF5E8001979EB /* Services */ = {
@@ -453,11 +442,6 @@
 				64DF63182CB18514001D7E12 /* SelectableView.swift in Sources */,
 				64DF63192CB18514001D7E12 /* SettingLabelView.swift in Sources */,
 				EB28D10D2CAE8B9D001A1F0F /* SinglePlayModel.swift in Sources */,
-        SelectGameView2
-				DC9A91642CB2167A00FB4D1C /* SelectLevelViewModel.swift in Sources */,
-				EB18AB402CAAF5F1001979EB /* GameBoardView.swift in Sources */,
-        
-        develop
 				EB4ABA4A2CB171600003028C /* GameMode.swift in Sources */,
 				EB18AB392CAAF5F1001979EB /* GreyButtonView.swift in Sources */,
 				EB4ABA4C2CB1B9630003028C /* TimerViewModel.swift in Sources */,

@@ -35,10 +35,9 @@ struct SelectGameView: View {
                             }
                             .customGrey()
                         }
-                        .fullScreenCover(isPresented: $isSinglePlayerPresented) {
+                        .sheet(isPresented: $isSinglePlayerPresented) {
                             SelectGame2View()
                         }
-                        
                         
                         NavigationLink(destination: GameViewTwoPlayersTest()) {
                             HStack(alignment: .center) {
