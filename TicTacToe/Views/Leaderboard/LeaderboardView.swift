@@ -8,7 +8,8 @@ import SwiftUI
 
 struct LeaderboardView: View {
     @Environment(\.presentationMode) var presentationMode
-    private var gameTimes = DataManager.shared.getTimes()
+    private var dataManager = DataManager.shared
+    @State private var gameTimes: [String] = []
     
     var body: some View {
         VStack {
@@ -36,6 +37,19 @@ struct LeaderboardView: View {
                     .fontWeight(.bold)
                     .padding(65)
             }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    dataManager.clearTimes()
+                    gameTimes = dataManager.getTimes()
+                }) {
+                    Text("Reset")
+                        .font(.caption)
+                        .foregroundStyle(.white)
+                }
+            }
+        }
+        .onAppear {
+            gameTimes = dataManager.getTimes()
         }
         .navigationBarBackButtonHidden(true)
     }
