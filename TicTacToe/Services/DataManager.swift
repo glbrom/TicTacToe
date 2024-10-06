@@ -24,4 +24,8 @@ final class DataManager {
     func getTimes() -> [String] {
         return UserDefaults.standard.stringArray(forKey: timeKey) ?? []
     }
+    
+    func clearTimes() {
+        UserDefaults.standard.removeObject(forKey: timeKey)
+    }
 }

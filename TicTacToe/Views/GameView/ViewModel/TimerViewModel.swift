@@ -40,6 +40,7 @@ final class TimerViewModel: ObservableObject {
             if self.remainingTime > 0 {
                 self.remainingTime -= 1
                 self.elapsedTime += 1
+                print(elapsedTime)
             } else {
                 self.timer?.invalidate()
                 self.endGame()
@@ -59,16 +60,18 @@ final class TimerViewModel: ObservableObject {
     }
     
     func endGame() {
-        print("Game Over. Remaining time: \(remainingTime) seconds")
+        print("Game Over. Remaining time: \(elapsedTime) seconds")
+        saveGameTime()
         stopTimer()
     }
     
     func saveGameTime() {
-        let gameTime = elapsedTimeTime
+        let gameTime = elapsedTimeFormatted
         DataManager.shared.saveTime(gameTime)
+        print("Time saved: \(gameTime)")
     }
     
-    var elapsedTimeTime: String {
+    var elapsedTimeFormatted: String {
         let minutes = elapsedTime / 60
         let seconds = elapsedTime % 60
         return String(format: "%02d:%02d", minutes, seconds)
