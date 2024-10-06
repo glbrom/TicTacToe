@@ -16,9 +16,11 @@ struct SinglePlayModel {
     struct Move {
         let player: Player
         let boardIndex: Int
+        let humanIcon: String
+        let computerIcon: String
         
         var indicator: String {
-            return player == .human ? "Xskin1" : "Oskin1"
+            return player == .human ? humanIcon : computerIcon
         }
     }
 }

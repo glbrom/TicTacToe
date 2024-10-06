@@ -10,21 +10,16 @@ import SwiftUI
 struct GameViewTwoPlayersTest: View {
     
     @StateObject private var twoPlayersViewModel = TwoPlayersViewModel()
+    @StateObject private var timerViewModel = TimerViewModel()
     
-    @State private var showSelectGameView: Bool = false
     @State private var playerOne = "You"
     @State private var playerTwo = "Player Two"
     @State private var shoowSelectGameView: Bool = false
     
     var body: some View {
-        //        NavigationView {
         VStack {
             // Back button view
             HStack {
-                //                    NavigationLink(destination: SelectGameView()) {
-                //                                          Image("Back-Icon")
-                //                                              .padding(.horizontal, 20)
-                //                                      }
                 Button(action: {
                     shoowSelectGameView = true
                 }) {
@@ -36,23 +31,23 @@ struct GameViewTwoPlayersTest: View {
             
             // PlayerView and Timer on/off
             HStack(alignment: .center) {
-                PlayerView(playerIcon: "Xskin1", playerName: playerOne)
+                PlayerView(playerIcon: twoPlayersViewModel.playerOneIcon, playerName: playerOne)
                 Spacer()
                 
-                if twoPlayersViewModel.isTimerVisible {
-                    Text(twoPlayersViewModel.formattedTime)
+                if timerViewModel.isTimerVisible {
+                    Text(timerViewModel.formattedTime)
                         .font(.system(size: 20, weight: .bold))
                 }
                 
                 Spacer()
-                PlayerView(playerIcon: "Oskin1", playerName: playerTwo)
+                PlayerView(playerIcon: twoPlayersViewModel.playerTwoIcon, playerName: playerTwo)
             }
             .padding(EdgeInsets(top: 20, leading: 30, bottom: 0, trailing: 30))
             
             // Players Turn and icon
             HStack(spacing: 10) {
                 if twoPlayersViewModel.currentTurn == .playerTwo {
-                    Image("Oskin1")
+                    Image(twoPlayersViewModel.playerTwoIcon)
                 }
                 
                 Text(twoPlayersViewModel.isPlayerOneTurn ? "\(playerOne)r turn" : "\(playerTwo) turn")
@@ -110,7 +105,7 @@ struct GameViewTwoPlayersTest: View {
         }
         .background(.appBackground)
         .onAppear {
-            twoPlayersViewModel.startTimer()
+            timerViewModel.startTimer()
         }
         .fullScreenCover(isPresented: $twoPlayersViewModel.isGameOver) {
             ResultView(text: twoPlayersViewModel.gameResultText, icon: twoPlayersViewModel.resultIcon, gameMode: .multiplayer)
@@ -119,7 +114,6 @@ struct GameViewTwoPlayersTest: View {
             SelectGameView()
         }
         .navigationBarBackButtonHidden(true)
-        //        }
     }
     
 }

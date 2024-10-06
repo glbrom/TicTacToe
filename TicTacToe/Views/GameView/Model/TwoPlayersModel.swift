@@ -15,9 +15,11 @@ struct TwoPlayersModel {
     struct Move {
         let player: Player
         let boardIndex: Int
+        let playerOne: String
+        let playerTwo: String
         
         var indicator: String {
-            return player == .playerOne ? "Xskin1" : "Oskin1"
+            return player == .playerOne ? playerOne : playerTwo
         }
     }
 }
