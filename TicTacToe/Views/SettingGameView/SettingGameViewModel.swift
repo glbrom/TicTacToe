@@ -86,4 +86,12 @@ class SettingGameViewModel: ObservableObject {
             selectedItemData = items[index].imageNames[0]
         }
     }
+    
+    func selectMusic(_ music: String) {
+        if choosedMusic != music {
+            AudioManager.shared.stopSound()
+        }
+        choosedMusic = music
+        AudioManager.shared.playSound(named: choosedMusic)
+    }
 }

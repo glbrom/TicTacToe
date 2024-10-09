@@ -25,9 +25,7 @@ struct LeaderboardView: View {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Image(systemName: "arrow.left")
-                        .font(.system(size: 23, weight: .bold))
-                        .foregroundStyle(.appBlack)
+                    Image("Back-Icon")
                 }
             }
             
