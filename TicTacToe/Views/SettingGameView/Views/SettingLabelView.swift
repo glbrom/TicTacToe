@@ -15,7 +15,7 @@ struct SettingLabelView: View {
         HStack {
             Text(title)
                 .multilineTextAlignment(.center)
-                .font(Font.custom("SF Pro Display", size: 20))
+                .font(.system(size: 20, weight: .bold))
                 .foregroundColor(.appBlack)
             
             Spacer()
