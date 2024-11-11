@@ -1,7 +1,7 @@
 
-![TicTacToe](https://github.com/user-attachments/assets/48340cbc-3a82-43a6-a521-b8bf48d43600)
-
 # Tic Tac Toe Project
+
+<img src="https://github.com/glbrom/glbrom/blob/66039ab9192b20c2cb2276236db88912030484b5/images/XOApp.png" width="820">
 
 ## Team:
 <p align="left"> 
