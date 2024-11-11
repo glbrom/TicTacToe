@@ -1,7 +1,7 @@
 
 # Tic Tac Toe Project
 
-<img src="https://github.com/glbrom/glbrom/blob/66039ab9192b20c2cb2276236db88912030484b5/images/XOApp.png" width="820">
+<img src="https://github.com/glbrom/glbrom/blob/66039ab9192b20c2cb2276236db88912030484b5/images/XOApp.png" width="840">
 
 ## Team:
 <p align="left"> 
